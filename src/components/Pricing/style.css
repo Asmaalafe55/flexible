@@ -1,5 +1,5 @@
 .pricingTxt {
-  @apply text-white text-[37px] flex justify-center items-end h-[90px];
+  @apply text-white text-[37px] flex justify-center items-center h-[5rem];
 }
 .cardName {
   @apply flex justify-center pt-5 text-[30px];

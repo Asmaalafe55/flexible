@@ -3,7 +3,9 @@
     <div class="contact-container">
       <div class="contact-card bg-[#D7CEC7]">
         <div class="card-title">Contact Us</div>
-        <div class="flex flex-col justify-center items-center text-[25px]">
+        <div
+          class="flex flex-col justify-center items-center space-y-3 text-[25px]"
+        >
           <div class="flex flex-col justify-center w-[25rem]">
             <div>Name</div>
             <input v-model="name" class="name-input" :class="nameIsEmpty" />
@@ -20,15 +22,15 @@
               :class="messageIsEmpty"
             />
           </div>
-        </div>
-        <div class="flex justify-center w-[10rem]">
-          <button
-            @click="openModal()"
-            data-modal-target="#modal"
-            class="bg-[#D11F1F] text-white"
-          >
-            Submit
-          </button>
+          <div class="flex justify-center">
+            <button
+              @click="openModal()"
+              data-modal-target="#modal"
+              class="submit-button"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </div>
       <div class="modal" id="modal">
