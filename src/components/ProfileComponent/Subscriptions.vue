@@ -3,14 +3,14 @@ export default {
   data() {
     return {
       offers: [
-        "Custom domain",
-        "Guest editors - 3",
-        "Storage space - 2 GB",
-        "Customer care - 24/7",
+        'Custom domain',
+        'Guest editors - 3',
+        'Storage space - 2 GB',
+        'Customer care - 24/7',
       ],
-    };
+    }
   },
-};
+}
 </script>
 <template>
   <div class="flex justify-center">
@@ -41,7 +41,7 @@ export default {
                becouse after signing in/up we should give him this offer -->
       <router-link to="/#pricing">
         <!-- Here we should know if the user is already sign-in or not -->
-        <div class="btnPosition-sub">
+        <div class="absolute bottom-12 left-[6.5rem]">
           <div class="pricingBtn-sub">
             <div class="cardButton-sub">Change</div>
           </div>

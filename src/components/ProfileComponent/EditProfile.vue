@@ -27,7 +27,7 @@ export default {
         </div>
       </div>
       <div class="edit-profile-input">
-        <div class="txt">First Name</div>
+        <div class="pl-2 text-[#0C0C0C] pb-1">First Name</div>
         <div>
           <input
             type="text"
@@ -38,7 +38,7 @@ export default {
             class="profile-input-text"
           />
         </div>
-        <div class="txt">Last Name</div>
+        <div class="pl-2 text-[#0C0C0C] pb-1">Last Name</div>
         <div>
           <input
             type="text"
@@ -49,7 +49,7 @@ export default {
             class="profile-input-text"
           />
         </div>
-        <div class="txt">Email</div>
+        <div class="pl-2 text-[#0C0C0C] pb-1">Email</div>
         <div>
           <input
             type="text"
