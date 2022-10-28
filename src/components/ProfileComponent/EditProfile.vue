@@ -2,18 +2,18 @@
 export default {
   data() {
     return {
-      user: JSON.parse(localStorage.getItem("user")),
-    };
+      user: JSON.parse(localStorage.getItem('user')),
+    }
   },
   methods: {
     closeEditProfileBox() {
-      this.$emit("closeprofile");
+      this.$emit('closeprofile')
     },
   },
-};
+}
 </script>
 <template>
-  <div class="edit-profile-container">
+  <div class="top-0 absolute w-[62rem] p-[16rem] h-[60rem]">
     <div class="edit-profile-box">
       <div class="flex flex-row space-x-[25rem]">
         <div class="absolute w-[1.5rem] mt-[1rem] ml-[1rem] h-[1.5rem]">

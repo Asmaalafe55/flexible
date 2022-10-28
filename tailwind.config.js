@@ -23,9 +23,6 @@ module.exports = {
         black: '#000000',
         navyColor: '#2B4F60',
       },
-      height: {
-        106: '6.625rem',
-      },
       backgroundImage: {
         bg2: "url('src/assets/img/a.jpg')",
         bg1: "url('src/assets/img/b.jpg')",

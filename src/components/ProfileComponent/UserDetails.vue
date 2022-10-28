@@ -1,31 +1,6 @@
-<script>
-import EditPhoto from "./EditPhoto.vue";
-import EditProfile from "./EditProfile.vue";
-export default {
-  data() {
-    return {
-      editPhotoButton: false,
-      editProfileButton: false,
-      user: JSON.parse(localStorage.getItem("user")),
-    };
-  },
-  methods: {
-    openEditPhoto() {
-      this.editPhotoButton = !this.editPhotoButton;
-    },
-    openEditProfile() {
-      this.editProfileButton = !this.editProfileButton;
-    },
-  },
-  components: {
-    EditPhoto,
-    EditProfile,
-  },
-};
-</script>
 <template>
   <div class="userDetails-container">
-    <h1 class="user-name">{{ this.user.name }}</h1>
+    <h1 class="font-poppins text-[36px]">{{ this.user.name }}</h1>
     <div class="flex">
       <div class="relative">
         <img
@@ -53,3 +28,28 @@ export default {
     @closeprofile="openEditProfile"
   />
 </template>
+<script>
+import EditPhoto from './EditPhoto.vue'
+import EditProfile from './EditProfile.vue'
+export default {
+  data() {
+    return {
+      editPhotoButton: false,
+      editProfileButton: false,
+      user: JSON.parse(localStorage.getItem('user')),
+    }
+  },
+  methods: {
+    openEditPhoto() {
+      this.editPhotoButton = !this.editPhotoButton
+    },
+    openEditProfile() {
+      this.editProfileButton = !this.editProfileButton
+    },
+  },
+  components: {
+    EditPhoto,
+    EditProfile,
+  },
+}
+</script>

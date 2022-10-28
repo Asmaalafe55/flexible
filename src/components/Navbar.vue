@@ -7,7 +7,10 @@
       </div>
     </router-link>
 
-    <div class="menu-item" style="focus:border-bottom: 2px solid black;">
+    <div
+      class="flex focus:border focus:border-b-2"
+      style="focus:border-bottom: 2px solid black;"
+    >
       <router-link
         :to="{ path: '/', hash: '#about' }"
         class="menu-link"
@@ -83,36 +86,36 @@
 <script>
 export default {
   created() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll)
     window.onscroll = function () {
-      this.handleScroll;
-    };
+      this.handleScroll
+    }
   },
   destroyed() {
-    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener('scroll', this.handleScroll)
   },
   data() {
     return {
-      focused: "aboutus",
-      user: JSON.parse(localStorage.getItem("user")),
-    };
+      focused: 'aboutus',
+      user: JSON.parse(localStorage.getItem('user')),
+    }
   },
   methods: {
     handleSignOut(event) {
-      localStorage.removeItem("user");
-      window.location.href = "/";
+      localStorage.removeItem('user')
+      window.location.href = '/'
     },
     checkSignIn() {
-      return !!localStorage.getItem("user");
+      return !!localStorage.getItem('user')
     },
     handleScroll() {
-      let sticky = document.getElementById.offsetTop;
+      let sticky = document.getElementById.offsetTop
       if (window.pageYOffset >= sticky) {
-        document.getElementById("menu").classList.add("sticky");
+        document.getElementById('menu').classList.add('sticky')
       } else {
-        document.getElementById("menu").classList.remove("sticky");
+        document.getElementById('menu').classList.remove('sticky')
       }
     },
   },
-};
+}
 </script>
