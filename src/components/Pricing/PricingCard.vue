@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div class="flex justify-center">
-      <div class="bg-[#D7CEC7E8] w-[332px] h-[587px] rounded-[20px]">
+      <div class="bg-[#D7CEC7E8] w-[21rem] h-[37rem] rounded-[20px]">
         <div class="cardName">{{ name }}</div>
         <div class="flex justify-center">
           <span class="cardPrice">
@@ -32,5 +32,5 @@
 <script>
 export default {
   props: ['name', 'shekels', 'price', 'monthly', 'sentence', 'offers'],
-};
+}
 </script>
