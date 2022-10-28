@@ -3,12 +3,12 @@
     <div class="parallax">
       <img class="parallax-img" src="../../assets/img/bg.png" />
       <div class="titles">
-        <div class="about">About Us</div>
+        <div class="text-4xl">About Us</div>
       </div>
     </div>
 
     <div class="about-text-container">
-      <p class="about-text">
+      <p class="text-3xl w-[43rem] text-center">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis
         molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
         fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus

@@ -1,26 +1,31 @@
 <template>
   <div class="parallax">
     <div class="contact-container">
-      <div class="contact-card">
+      <div class="contact-card bg-[#D7CEC7]">
         <div class="card-title">Contact Us</div>
-        <div class="card-body">
-          <div class="contact-name-label">Name</div>
-          <input v-model="name" class="name-input" :class="nameIsEmpty" />
-          <br />
-          <div class="contact-email-label">Email</div>
-          <input v-model="email" class="email-input" :class="emailIsEmpty" />
-          <br />
-          <div class="contact-message-label">Tell us how we can help</div>
-          <textarea
-            v-model="message"
-            class="message-input"
-            :class="messageIsEmpty"
-          />
-          <br />
+        <div class="flex flex-col justify-center items-center text-[25px]">
+          <div class="flex flex-col justify-center w-[25rem]">
+            <div>Name</div>
+            <input v-model="name" class="name-input" :class="nameIsEmpty" />
+          </div>
+          <div class="flex flex-col justify-center w-[25rem]">
+            <div>Email</div>
+            <input v-model="email" class="email-input" :class="emailIsEmpty" />
+          </div>
+          <div class="flex flex-col justify-center w-[25rem]">
+            <div>Tell us how we can help</div>
+            <textarea
+              v-model="message"
+              class="message-input"
+              :class="messageIsEmpty"
+            />
+          </div>
+        </div>
+        <div class="flex justify-center w-[10rem]">
           <button
             @click="openModal()"
             data-modal-target="#modal"
-            class="submit-button"
+            class="bg-[#D11F1F] text-white"
           >
             Submit
           </button>
@@ -43,54 +48,54 @@
 export default {
   data() {
     return {
-      name: "",
-      email: "",
-      message: "",
-      modal: document.querySelector(".modal"),
-      overlay: document.getElementById("overlay"),
-      nameIsEmpty: "",
-      emailIsEmpty: "",
-      messageIsEmpty: "",
+      name: '',
+      email: '',
+      message: '',
+      modal: document.querySelector('.modal'),
+      overlay: document.getElementById('overlay'),
+      nameIsEmpty: '',
+      emailIsEmpty: '',
+      messageIsEmpty: '',
     };
   },
   methods: {
     openModal: function () {
       if (!this.name || !this.email || !this.message) {
         if (!this.name) {
-          this.nameIsEmpty = "errorEmpty";
+          this.nameIsEmpty = 'errorEmpty';
         } else {
-          this.nameIsEmpty = "notEmpty";
+          this.nameIsEmpty = 'notEmpty';
         }
         if (!this.email) {
-          this.emailIsEmpty = "errorEmpty";
+          this.emailIsEmpty = 'errorEmpty';
         } else {
           if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email))
-            this.emailIsEmpty = "notEmpty";
-          else this.emailIsEmpty = "errorEmpty";
+            this.emailIsEmpty = 'notEmpty';
+          else this.emailIsEmpty = 'errorEmpty';
         }
         if (!this.message) {
-          this.messageIsEmpty = "errorEmpty";
+          this.messageIsEmpty = 'errorEmpty';
         } else {
-          this.messageIsEmpty = "notEmpty";
+          this.messageIsEmpty = 'notEmpty';
         }
-        alert("You must fill out all the boxes");
+        alert('You must fill out all the boxes');
       } else {
-        this.nameIsEmpty = "notEmpty";
-        this.emailIsEmpty = "notEmpty";
-        this.messageIsEmpty = "notEmpty";
+        this.nameIsEmpty = 'notEmpty';
+        this.emailIsEmpty = 'notEmpty';
+        this.messageIsEmpty = 'notEmpty';
 
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.email)) {
-          modal.classList.add("active");
-          overlay.classList.add("active");
+          modal.classList.add('active');
+          overlay.classList.add('active');
         } else {
-          alert("You need to enter a valid email address");
-          this.emailIsEmpty = "errorEmpty";
+          alert('You need to enter a valid email address');
+          this.emailIsEmpty = 'errorEmpty';
         }
       }
     },
     closeModal: function () {
-      modal.classList.remove("active");
-      overlay.classList.remove("active");
+      modal.classList.remove('active');
+      overlay.classList.remove('active');
     },
   },
 };
