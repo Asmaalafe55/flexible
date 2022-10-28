@@ -11,7 +11,7 @@
   @apply h-[3rem] rounded-[18px] border-2 p-[1rem] shadow-[0px_4px_4px_0px_#00000080];
 }
 .name-input.errorEmpty {
-  @apply border-red;
+  @apply border-[#D11F1F];
 }
 .name-input.notEmpty {
   @apply border-transparent;
@@ -20,7 +20,7 @@
   @apply h-[3rem] rounded-[18px] border-2 p-[1rem] shadow-[0px_4px_4px_0px_#00000080];
 }
 .email-input.errorEmpty {
-  @apply border-red;
+  @apply border-[#D11F1F];
 }
 .email-input.notEmpty {
   @apply border-transparent;
@@ -29,7 +29,7 @@
   @apply min-h-[5rem] max-h-[10rem] rounded-[18px] border-2 pl-[1rem] p-[1rem] break-all shadow-[0px_4px_4px_0px_#00000080];
 }
 .message-input.errorEmpty {
-  @apply border-red;
+  @apply border-[#D11F1F];
 }
 .message-input.notEmpty {
   @apply border-transparent;
