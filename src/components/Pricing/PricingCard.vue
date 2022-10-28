@@ -1,13 +1,15 @@
 <template>
   <div class="relative">
     <div class="flex justify-center">
-      <div class="bg-[#D7CEC7E8] w-[21rem] h-[37rem] rounded-[20px]">
+      <div class="bg-[#D7CEC7E8] w-[21rem] h-[37rem] rounded-[18px]">
         <div class="flex justify-center pt-5 text-[30px]">{{ name }}</div>
         <div class="flex justify-center">
           <span class="flex pt-5 font-bold text-[47px]">
             <b class="flex items-center pt-[12px] text-[20px]">{{ shekels }}</b>
             <b class="items-end">{{ price }}</b>
-            <b v-if="monthly" class="priceDetails">/{{ monthly }}</b>
+            <b v-if="monthly" class="flex items-center pt-[12px] text-[20px]"
+              >/{{ monthly }}</b
+            >
           </span>
         </div>
         <div class="flex justify-center pt-2 text-[20px]">{{ sentence }}</div>

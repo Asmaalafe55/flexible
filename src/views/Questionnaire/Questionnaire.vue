@@ -1,65 +1,3 @@
-<script>
-import Navbar from "@/components/Navbar.vue";
-import StartQuestionnaire from "@/components/QuestionnaireComponents/StartQuestionnaire.vue";
-import TextBox from "@/components/QuestionnaireComponents/TextBox.vue";
-import RadioButtons from "@/components/QuestionnaireComponents/RadioButtons.vue";
-import EventQuestions from "@/components/QuestionnaireComponents/EventQuestions.vue";
-import BlogQuestions from "../../components/QuestionnaireComponents/BlogQuestions.vue";
-
-export default {
-  data() {
-    return {
-      currentStep: 1,
-      text: "",
-      modal: document.querySelector(".modal"),
-      overlay: document.getElementById("overlay"),
-      paths: {
-        event: [0, 1, 2, 3, 4],
-        blog: [0, 1, 2, 3],
-      },
-      category: "",
-    };
-  },
-
-  methods: {
-    getData() {
-      if (this.currentStep == 2) {
-        TextBox.methods.handleSubmit;
-      }
-
-      this.currentStep++;
-    },
-    openModal: function () {
-      modal.classList.add("active");
-      overlay.classList.add("active");
-    },
-    closeModal: function () {
-      modal.classList.remove("active");
-      overlay.classList.remove("active");
-    },
-    updateCategory(newCategory) {
-      this.category = newCategory;
-    },
-    mounted() {
-      if (
-        localStorage.getItem("user") ||
-        localStorage.getItem("access_token")
-      ) {
-        this.$router.push({ name: "signin" });
-      }
-    },
-  },
-  components: {
-    Navbar,
-    StartQuestionnaire,
-    TextBox,
-    RadioButtons,
-    EventQuestions,
-    BlogQuestions,
-  },
-};
-</script>
-
 <template>
   <div class="modal" id="modal">
     <div class="modal-text">
@@ -123,3 +61,64 @@ export default {
     </div>
   </body>
 </template>
+<script>
+import Navbar from '@/components/Navbar.vue'
+import StartQuestionnaire from '@/components/QuestionnaireComponents/StartQuestionnaire.vue'
+import TextBox from '@/components/QuestionnaireComponents/TextBox.vue'
+import RadioButtons from '@/components/QuestionnaireComponents/RadioButtons.vue'
+import EventQuestions from '@/components/QuestionnaireComponents/EventQuestions.vue'
+import BlogQuestions from '../../components/QuestionnaireComponents/BlogQuestions.vue'
+
+export default {
+  data() {
+    return {
+      currentStep: 1,
+      text: '',
+      modal: document.querySelector('.modal'),
+      overlay: document.getElementById('overlay'),
+      paths: {
+        event: [0, 1, 2, 3, 4],
+        blog: [0, 1, 2, 3],
+      },
+      category: '',
+    }
+  },
+
+  methods: {
+    getData() {
+      if (this.currentStep == 2) {
+        TextBox.methods.handleSubmit
+      }
+
+      this.currentStep++
+    },
+    openModal: function () {
+      modal.classList.add('active')
+      overlay.classList.add('active')
+    },
+    closeModal: function () {
+      modal.classList.remove('active')
+      overlay.classList.remove('active')
+    },
+    updateCategory(newCategory) {
+      this.category = newCategory
+    },
+    mounted() {
+      if (
+        localStorage.getItem('user') ||
+        localStorage.getItem('access_token')
+      ) {
+        this.$router.push({ name: 'signin' })
+      }
+    },
+  },
+  components: {
+    Navbar,
+    StartQuestionnaire,
+    TextBox,
+    RadioButtons,
+    EventQuestions,
+    BlogQuestions,
+  },
+}
+</script>

@@ -4,6 +4,9 @@
 .signBg {
   @apply bg-[#D7CEC7] w-[600px] rounded-[20px] border border-black;
 }
+.signText {
+  @apply flex justify-center text-black pt-3 text-[34px];
+}
 .detail-input {
   @apply w-[250px] h-[60px] mb-5 pl-3 rounded-[18px] bg-[#FFFFFF99] focus:bg-white focus:outline-none shadow-[0px_4px_4px_0px_#00000080];
 }
@@ -12,7 +15,4 @@
 }
 .btn {
   @apply flex justify-center h-[70px] w-[237px] rounded-[18px] bg-[#d11f1f] text-[34px] text-white shadow-[0px_4px_4px_0px_#00000080];
-}
-.signText {
-  @apply flex justify-center text-black pt-3 text-[34px];
 }
