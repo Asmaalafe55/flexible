@@ -5,14 +5,14 @@
   <div class="parallax">
     <img class="parallax-img" src="../../assets/img/bg.png" />
     <div class="sign-container">
-      <div class="signBg1 h-[45rem]">
-        <div class="signBg">
+      <div class="signBg h-[45rem]">
+        <div class="bg-[#F1E8E2] rounded-t-[20px] h-[70px]">
           <div class="signText">Sign Up</div>
           <div class="flex flex-col items-center justify-center">
-            <div class="txt-and-button w-[37.5rem] pt-5">
+            <div class="text-[25px] font-poppins w-[37.5rem] pt-5">
               <div class="flex flex-row justify-around">
                 <div class="flex flex-col justify-start">
-                  <div class="txt">First Name</div>
+                  <div class="pl-2 text-[#0C0C0C] pb-1">First Name</div>
                   <input
                     class="detail-input"
                     type="text"
@@ -23,7 +23,7 @@
                   />
                 </div>
                 <div class="flex flex-col justify-start">
-                  <div class="txt">Last Name</div>
+                  <div class="pl-2 text-[#0C0C0C] pb-1">Last Name</div>
                   <input
                     class="detail-input"
                     type="text"
@@ -36,7 +36,7 @@
               </div>
               <div class="flex flex-row justify-around">
                 <div class="flex flex-col justify-start">
-                  <div class="txt">Email</div>
+                  <div class="pl-2 text-[#0C0C0C] pb-1">Email</div>
                   <input
                     class="emailInput"
                     type="email"
@@ -49,7 +49,7 @@
               </div>
               <div class="flex flex-row justify-around">
                 <div class="flex flex-col justify-start">
-                  <div class="txt">Password</div>
+                  <div class="pl-2 text-[#0C0C0C] pb-1">Password</div>
                   <input
                     class="detail-input"
                     type="password"
@@ -60,7 +60,7 @@
                   />
                 </div>
                 <div class="flex flex-col justify-start">
-                  <div class="txt">Confirm Password</div>
+                  <div class="pl-2 text-[#0C0C0C] pb-1">Confirm Password</div>
                   <input
                     class="detail-input"
                     type="password"
@@ -71,13 +71,13 @@
                   />
                 </div>
               </div>
-              <div class="btnBg">
+              <div class="flex justify-center py-5">
                 <div class="btn">
                   <button>Submit</button>
                 </div>
               </div>
               <div class="flex justify-around pt-5">
-                <div class="fb-btn">
+                <div class="flex justify-center rounded-[1rem]">
                   <button
                     @click="facebookLogIn"
                     class="bg-blue-500 px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded"
@@ -95,11 +95,15 @@
                     <span>Login with Facebook</span>
                   </button>
                 </div>
-                <div class="google-button" id="google"></div>
+                <div class="min-h-[50px] flex justify-center" id="google"></div>
               </div>
-              <div class="accountQuestion pt-4">
+              <div class="text-center text-[20px] text-black pt-4">
                 Already have an account? Click
-                <RouterLink class="hereStyle" to="/sign-in">here</RouterLink>
+                <RouterLink
+                  class="text-[#013565F0] hover:underline"
+                  to="/sign-in"
+                  >here</RouterLink
+                >
                 to sign in
               </div>
             </div>
@@ -110,16 +114,16 @@
   </div>
 </template>
 <script>
-import SignInUpNavbar from "@/components/SignInUpNavbar.vue";
+import SignInUpNavbar from '@/components/SignInUpNavbar.vue'
 export default {
   data() {
     return {
-      firstName: "",
-      lastName: "",
-      emailInput: "",
-      passwordInput: "",
-      passConfirm: "",
-    };
+      firstName: '',
+      lastName: '',
+      emailInput: '',
+      passwordInput: '',
+      passConfirm: '',
+    }
   },
   components: {
     SignInUpNavbar,
@@ -132,44 +136,44 @@ export default {
         lastName: this.lastName,
         email: this.emailInput,
         password: this.passwordInput,
-      };
+      }
       this.axios
-        .post("http://localhost:4000/api/sign-up", data)
+        .post('http://localhost:4000/api/sign-up', data)
         .then((response) => {
-          if (response.data.status == "success") this.$router.push("/sign-in");
-          else alert("An error occured...");
+          if (response.data.status == 'success') this.$router.push('/sign-in')
+          else alert('An error occured...')
         })
-        .catch(console.log);
+        .catch(console.log)
     },
   },
 
   mounted() {
     const handleCredentialResponse = (response) => {
-      var base64Url = response.credential.split(".")[1];
-      var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      var base64Url = response.credential.split('.')[1]
+      var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
       var jsonPayload = decodeURIComponent(
         atob(base64)
-          .split("")
+          .split('')
           .map(function (c) {
-            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
           })
-          .join("")
-      );
-      localStorage.setItem("user", jsonPayload);
-      window.location.href = "/profile";
-    };
+          .join('')
+      )
+      localStorage.setItem('user', jsonPayload)
+      window.location.href = '/profile'
+    }
     google.accounts.id.initialize({
       client_id:
-        "905632566241-c0mi3crlia5q8h6tqe9uc2u647sjkpji.apps.googleusercontent.com",
+        '905632566241-c0mi3crlia5q8h6tqe9uc2u647sjkpji.apps.googleusercontent.com',
       callback: handleCredentialResponse,
-    });
+    })
     google.accounts.id.renderButton(
-      document.getElementById("google"),
-      { theme: "outline", size: "large", text: "signin", width: "220px" } // customization attributes
-    );
-    if (localStorage.getItem("user") || localStorage.getItem("access_token")) {
-      this.$router.push({ name: "home" });
+      document.getElementById('google'),
+      { theme: 'outline', size: 'large', text: 'signin', width: '220px' } // customization attributes
+    )
+    if (localStorage.getItem('user') || localStorage.getItem('access_token')) {
+      this.$router.push({ name: 'home' })
     }
   },
-};
+}
 </script>

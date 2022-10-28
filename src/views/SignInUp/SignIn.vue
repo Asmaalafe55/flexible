@@ -5,14 +5,14 @@
   <div class="parallax">
     <img class="parallax-img" src="../../assets/img/bg.png" />
     <div class="sign-container">
-      <div class="signBg1 h-[38rem]">
-        <div class="signBg">
+      <div class="signBg h-[38rem]">
+        <div class="bg-[#F1E8E2] rounded-t-[20px] h-[70px]">
           <div class="signText">Sign In</div>
           <div class="sign-body">
-            <div class="txt-and-button py-5">
+            <div class="text-[25px] font-poppins py-5">
               <div class="flex flex-row justify-around">
                 <div class="flex flex-col justify-start">
-                  <div class="txt">Email</div>
+                  <div class="pl-2 text-[#0C0C0C] pb-1">Email</div>
                   <input
                     class="emailInput"
                     type="email"
@@ -25,7 +25,7 @@
               </div>
               <div class="flex flex-row justify-around">
                 <div class="flex flex-col justify-start">
-                  <div class="txt">Password</div>
+                  <div class="pl-2 text-[#0C0C0C] pb-1">Password</div>
                   <input
                     class="emailInput"
                     type="password"
@@ -36,13 +36,13 @@
                   />
                 </div>
               </div>
-              <div class="btnBg">
+              <div class="flex justify-center py-5">
                 <div class="btn">
                   <button>Sign In</button>
                 </div>
               </div>
               <div class="flex justify-around pt-5">
-                <div class="fb-btn">
+                <div class="flex justify-center rounded-[1rem]">
                   <button
                     @click="facebookLogIn"
                     class="bg-blue-500 px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded"
@@ -60,11 +60,15 @@
                     <span>Login with Facebook</span>
                   </button>
                 </div>
-                <div class="google-button" id="google"></div>
+                <div class="min-h-[50px] flex justify-center" id="google"></div>
               </div>
-              <div class="accountQuestion pt-4">
+              <div class="text-center text-[20px] text-black pt-4">
                 Don’t have an account yet? Click
-                <RouterLink class="hereStyle" to="/sign-up">here</RouterLink>
+                <RouterLink
+                  class="text-[#013565F0] hover:underline"
+                  to="/sign-up"
+                  >here</RouterLink
+                >
                 to sign up
               </div>
             </div>
@@ -76,13 +80,13 @@
 </template>
 
 <script>
-import SignInUpNavbar from "@/components/SignInUpNavbar.vue";
+import SignInUpNavbar from '@/components/SignInUpNavbar.vue'
 export default {
   data() {
     return {
-      emailInput: "",
-      passwordInput: "",
-    };
+      emailInput: '',
+      passwordInput: '',
+    }
   },
 
   components: {
@@ -91,72 +95,72 @@ export default {
   methods: {
     facebookLogIn() {
       FB.login((res) => {
-        FB.api("/me?fields=name,email", function (response) {
-          response.type = "facebook";
-          localStorage.setItem("user", JSON.stringify(response));
-          window.location.href = "/";
-        });
-      });
+        FB.api('/me?fields=name,email', function (response) {
+          response.type = 'facebook'
+          localStorage.setItem('user', JSON.stringify(response))
+          window.location.href = '/'
+        })
+      })
     },
     signIn() {
       const data = {
         email: this.emailInput,
         password: this.passwordInput,
-      };
+      }
       this.axios
-        .post("http://localhost:4000/api/sign-in", data)
+        .post('http://localhost:4000/api/sign-in', data)
         .then((response) => {
           window.localStorage.setItem(
-            "access_token",
+            'access_token',
             response.data.access_token
-          );
+          )
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log(error))
     },
   },
 
   mounted() {
     FB.init({
-      appId: "631600558695178",
+      appId: '631600558695178',
       cookie: true,
       xfbml: true,
-      version: "v15.0",
-    });
+      version: 'v15.0',
+    })
     const handleCredentialResponse = (response) => {
-      var base64Url = response.credential.split(".")[1];
-      var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      var base64Url = response.credential.split('.')[1]
+      var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
       var jsonPayload = decodeURIComponent(
         atob(base64)
-          .split("")
+          .split('')
           .map(function (c) {
-            return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
           })
-          .join("")
-      );
+          .join('')
+      )
       // console.log('Encoded JWT ID token:' + response.credential);
-      const json = JSON.parse(jsonPayload);
-      json.type = "google";
-      localStorage.setItem("user", JSON.stringify(json));
-      window.location.href = "/";
-    };
+      const json = JSON.parse(jsonPayload)
+      json.type = 'google'
+      localStorage.setItem('user', JSON.stringify(json))
+      window.location.href = '/'
+    }
     google.accounts.id.initialize({
       client_id:
-        "905632566241-c0mi3crlia5q8h6tqe9uc2u647sjkpji.apps.googleusercontent.com",
+        '905632566241-c0mi3crlia5q8h6tqe9uc2u647sjkpji.apps.googleusercontent.com',
       callback: handleCredentialResponse,
-    });
+    })
     google.accounts.id.renderButton(
-      document.getElementById("google"),
+      document.getElementById('google'),
       {
-        theme: "outline",
-        size: "large",
-        height: "100px",
-        text: "signin",
-        width: "240px",
+        theme: 'outline',
+        size: 'large',
+        height: '100px',
+        text: 'signin',
+        width: '240px',
       } // customization attributes
-    );
-    if (localStorage.getItem("user") || localStorage.getItem("access_token")) {
-      this.$router.push({ name: "home" });
+    )
+    if (localStorage.getItem('user') || localStorage.getItem('access_token')) {
+      this.$router.push({ name: 'home' })
     }
   },
-};
+}
 </script>
