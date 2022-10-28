@@ -1,23 +1,21 @@
 <template>
   <div class="userDetails-container">
     <h1 class="font-poppins text-[36px]">{{ this.user.name }}</h1>
-    <div class="flex">
-      <div class="relative">
-        <img
-          v-if="this.user.type == 'google'"
-          class="user-photo"
-          :src="this.user.picture"
-        />
-        <img
-          v-else-if="this.user.type == 'facebook'"
-          class="user-photo"
-          src="@/assets/img/mario.png"
-        />
-        <div class="edit-photo">
-          <button @click="openEditPhoto">
-            <img src="@/assets/img/pencile.png" />
-          </button>
-        </div>
+    <div class="relative">
+      <img
+        v-if="this.user.type == 'google'"
+        class="user-photo"
+        :src="this.user.picture"
+      />
+      <img
+        v-else-if="this.user.type == 'facebook'"
+        class="user-photo"
+        src="@/assets/img/mario.png"
+      />
+      <div class="absolute bottom-0 right-0 h-12 w-12 my-5">
+        <button @click="openEditPhoto">
+          <img src="@/assets/img/pencile.png" />
+        </button>
       </div>
     </div>
     <button @click="openEditProfile" class="edit-button">Edit profile</button>

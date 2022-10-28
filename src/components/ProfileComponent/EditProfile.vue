@@ -14,7 +14,7 @@ export default {
 </script>
 <template>
   <div class="top-0 absolute w-[62rem] p-[16rem] h-[60rem]">
-    <div class="edit-profile-box">
+    <div class="edit-box">
       <div class="flex flex-row space-x-[25rem]">
         <div class="absolute w-[1.5rem] mt-[1rem] ml-[1rem] h-[1.5rem]">
           <button @click="closeEditProfileBox">
@@ -22,7 +22,7 @@ export default {
           </button>
         </div>
 
-        <div class="text-[30px] font-poppins absolute">
+        <div class="absolute text-[30px] font-poppins">
           <button @click="closeEditProfileBox">save</button>
         </div>
       </div>

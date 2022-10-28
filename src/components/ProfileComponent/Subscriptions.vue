@@ -43,8 +43,14 @@ export default {
       </div>
       <router-link to="/#pricing">
         <div class="absolute bottom-5 left-[8rem]">
-          <div class="pricingBtn">
-            <div class="cardButton">Change</div>
+          <div
+            class="w-[15rem] h-[5rem] bg-[#B1A198] rounded-[18px] shadow-[0px_4px_4px_#00000080]"
+          >
+            <div
+              class="flex justify-center cursor-pointer h-[74px] items-center text-[30px] hover:bg-white hover:rounded-[18px] active:h-[79px] active:bg-gray-100 active:shadow-[0px_4px_4px_#00000090]"
+            >
+              Change
+            </div>
           </div>
         </div>
       </router-link>
