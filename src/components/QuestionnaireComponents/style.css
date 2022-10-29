@@ -20,20 +20,11 @@
 .radios {
   @apply text-black font-poppins font-normal text-3xl not-italic leading-loose ml-[7rem];
 }
-.radio {
-  @apply w-[150px] mt-[0.8rem];
-}
+
 .firstSentence {
   @apply ml-[4rem] mr-[4rem] mt-[120px] text-center not-italic text-black font-poppins text-[33px] font-semibold leading-[50px];
 }
 
-#blog,
-#portfolio,
-#restaurant,
-#event,
-#e-commerce {
-  @apply mt-[35px] border-none w-[35px] h-[32px] shadow-none;
-}
 .checkboxes {
   @apply text-black font-poppins font-normal text-3xl not-italic leading-loose ml-[7rem];
 }

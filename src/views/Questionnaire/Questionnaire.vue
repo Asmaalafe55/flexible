@@ -54,7 +54,11 @@
           Next
         </button>
 
-        <button @click="openModal()" v-if="currentStep == 5" class="nextButton">
+        <button
+          @click="openModal()"
+          v-if="currentStep == paths[category]?.length + 3"
+          class="nextButton"
+        >
           Submit
         </button>
       </div>
