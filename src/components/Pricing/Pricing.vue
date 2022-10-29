@@ -8,6 +8,7 @@
           :price="price[0]"
           :sentence="sentence[0]"
           :offers="offers[0]"
+          :product_id="product_id[0]"
         />
         <PricingCard
           :name="name[1]"
@@ -16,6 +17,7 @@
           :monthly="monthly"
           :sentence="sentence[1]"
           :offers="offers[1]"
+          :product_id="product_id[1]"
         />
         <PricingCard
           :name="name[2]"
@@ -24,6 +26,7 @@
           :monthly="monthly"
           :sentence="sentence[2]"
           :offers="offers[2]"
+          :product_id="product_id[2]"
         />
       </div>
     </div>
@@ -58,6 +61,7 @@ export default {
           'Customer care - 24/7',
         ],
       ],
+      product_id: [37556, 37553, 37555],
       shekels: '₪',
       monthly: 'monthly',
     }
