@@ -16,12 +16,15 @@ module.exports = {
       },
       colors: {
         backgroundColor: '#D7CEC7',
+        mainBg: '#D7CEC7',
         text: '#989595',
         white: '#FFFFFF',
         red: '#D11F1F',
         back: '#565454',
         black: '#000000',
         navyColor: '#2B4F60',
+        primary: '#f84e4e',
+        primaryHover: '#fc2929',
       },
       backgroundImage: {
         bg2: "url('src/assets/img/a.jpg')",

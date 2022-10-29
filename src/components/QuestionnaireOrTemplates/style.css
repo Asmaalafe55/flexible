@@ -1,14 +1,27 @@
 .questionnaire-or-templates-title-container {
-  @apply flex justify-center items-center pb-[6rem];
+  @apply flex justify-center items-center 
+  pb-[6rem];
 }
 .questionnaire-or-templates-title {
-  @apply bg-[#013565] h-[5rem] w-[30rem] rounded-[15px] flex justify-center items-center text-3xl text-[white];
+  @apply bg-[#013565] 
+  h-[5rem]
+  w-[30rem]
+  rounded-[15px]
+  flex justify-center items-center
+  text-3xl
+  text-[white];
 }
 .polygon {
-  @apply absolute w-0 h-0 left-0 border-l-[90rem] border-l-[#013565] border-b-[50rem] border-b-transparent;
+  @apply absolute
+  w-0 h-0
+  left-[-40px]
+  border-l-[40rem]
+  border-l-[#013565]
+  border-b-[40rem]
+  border-b-transparent;
 }
 .questionnaire-or-templates-container {
-  @apply flex space-x-[5rem] items-center justify-center;
+  @apply flex space-x-[5rem] items-center justify-center bg-mainBg;
 }
 .build-website-option {
   @apply z-10 my-6 w-[30rem] flex items-center flex-col;

@@ -1,9 +1,18 @@
-.contact-container {
-  @apply h-[90vh] flex justify-center items-center;
-}
 .contact-card {
-  @apply h-[35rem] w-[35rem] bg-[#D7CEC7] rounded-[20px] shadow-[0px_4px_4px_0px_#00000080];
+  @apply w-[35rem] 
+  bg-mainBg
+  rounded-[20px] 
+  shadow-[0px_4px_4px_0px_#00000080] 
+  m-auto
+  my-10
+  pb-10;
 }
+
 .card-title {
-  @apply h-[4rem] bg-[#F1E8E2] text-[30px] flex justify-center items-center rounded-tr-[20px] rounded-tl-[20px];
+  @apply h-[4rem] 
+  bg-[#F1E8E2] 
+  text-[30px] 
+  flex justify-center items-center 
+  rounded-tr-[20px] 
+  rounded-tl-[20px];
 }

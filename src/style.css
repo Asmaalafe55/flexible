@@ -6,7 +6,6 @@
 @import './views/temps/style.css';
 @import './views/SignInUp/style.css';
 @import './components/GetStarted/style.css';
-@import './components/Slider/style.css';
 @import './components/About/style.css';
 @import './views/Questionnaire/style.css';
 @import './views/Profile/style.css';
@@ -22,15 +21,35 @@ html {
 body {
   @apply mt-[6rem];
 }
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  @apply bg-mainBg;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+body {
+  scrollbar-width: none;
+}
+
 /* Home styling */
 .homeStyle {
-  @apply flex justify-around items-center h-[90vh] bg-[#D7CEC7] space-x-4;
+  @apply flex justify-around items-center 
+  h-[85vh] 
+  bg-[#D7CEC7] 
+  space-x-4;
 }
 
 /* Navbar styling */
 .menu {
-  @apply w-full bg-[#D7CEC7] top-0 text-center text-[26px] 
-  font-poppins fixed h-[6.625rem] flex shadow-[0px_4px_4px_0px_#00000080] z-50;
+  @apply w-full bg-[#D7CEC7] top-0 text-center text-[22px] 
+  font-poppins fixed h-[11vh] flex  z-50;
 }
 .menu-link {
   @apply py-7 px-3 ml-14 items-center text-black active:shadow-[0px_4px_4px_0px_#00000080];
@@ -39,7 +58,7 @@ body {
   @apply h-16 z-10;
 }
 .logoWithFlexible {
-  @apply flex items-center text-black py-[0.80rem] truncate text-[34px];
+  @apply flex items-center text-black py-[0.80rem] truncate text-[30px];
 }
 .underlined {
   @apply border-b-4 border-solid border-[#908077] rounded;
@@ -55,7 +74,7 @@ body {
 
 /* Parallax styling */
 .parallax-img {
-  @apply min-w-full fixed top-0 left-2/4 -z-10 -translate-x-2/4;
+  @apply min-h-[100vh] fixed top-0 left-2/4 -z-10 -translate-x-2/4;
 }
 .parallax {
   @apply relative h-1/2 bg-fixed bg-center bg-no-repeat bg-cover;
