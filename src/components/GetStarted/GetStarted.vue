@@ -4,7 +4,7 @@
       Build your custom website with Flexible
     </p>
     <router-link :to="{ path: '/', hash: '#quesOrTemp' }">
-      <button class="getStarted-button">Get Started</button>
+      <button class="text-3xl primaryButton w-80">Get Started</button>
     </router-link>
   </div>
 </template>

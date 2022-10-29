@@ -1,7 +1,7 @@
 <template>
-  <div id="default-carousel" class="relative" data-carousel="static">
+  <div id="default-carousel" class="relative" data-carousel="slide">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 w-[35vw] overflow-hidden rounded-lg md:h-96">
+    <div class="relative w-[40vw] overflow-hidden rounded-lg md:h-[50vh]">
       <div
         class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
         data-carousel-item=""

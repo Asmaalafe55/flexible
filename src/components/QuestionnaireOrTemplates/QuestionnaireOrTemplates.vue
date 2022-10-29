@@ -1,5 +1,5 @@
 <template>
-  <div class="QorT">
+  <div>
     <div class="questionnaire-or-templates-title-container">
       <div class="parallax">
         <div class="titles">Choose what's right for you</div>
