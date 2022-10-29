@@ -2,19 +2,19 @@
 export default {
   data() {
     return {
-      user: JSON.parse(localStorage.getItem("user")),
-    };
+      user: JSON.parse(localStorage.getItem('user')),
+    }
   },
   methods: {
     closeEditProfileBox() {
-      this.$emit("closeprofile");
+      this.$emit('closeprofile')
     },
   },
-};
+}
 </script>
 <template>
-  <div class="edit-profile-container">
-    <div class="edit-profile-box">
+  <div class="top-0 absolute w-[62rem] p-[16rem] h-[60rem]">
+    <div class="edit-box">
       <div class="flex flex-row space-x-[25rem]">
         <div class="absolute w-[1.5rem] mt-[1rem] ml-[1rem] h-[1.5rem]">
           <button @click="closeEditProfileBox">
@@ -22,12 +22,12 @@ export default {
           </button>
         </div>
 
-        <div class="text-[30px] font-poppins absolute">
+        <div class="absolute text-[30px] font-poppins">
           <button @click="closeEditProfileBox">save</button>
         </div>
       </div>
       <div class="edit-profile-input">
-        <div class="txt">First Name</div>
+        <div class="pl-2 text-[#0C0C0C] pb-1">First Name</div>
         <div>
           <input
             type="text"
@@ -38,7 +38,7 @@ export default {
             class="profile-input-text"
           />
         </div>
-        <div class="txt">Last Name</div>
+        <div class="pl-2 text-[#0C0C0C] pb-1">Last Name</div>
         <div>
           <input
             type="text"
@@ -49,7 +49,7 @@ export default {
             class="profile-input-text"
           />
         </div>
-        <div class="txt">Email</div>
+        <div class="pl-2 text-[#0C0C0C] pb-1">Email</div>
         <div>
           <input
             type="text"

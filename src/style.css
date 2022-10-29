@@ -1,16 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import "./components/QuestionnaireComponents/style.css";
-@import "./components/ContactUs/style.css";
-@import "./components/Pricing/style.css";
-@import "./components/QuestionnaireOrTemplates/style.css";
-@import "./views/temps/style.css";
-@import "./views/SignInUp/style.css";
-@import "./components/GetStarted/style.css";
-@import "./components/Slider/style.css";
-@import "./components/About/style.css";
-@import "./views/Questionnaire/style.css";
-@import "./views/Profile/style.css";
-@import "./components/ProfileComponent/style.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import './components/QuestionnaireComponents/style.css';
+@import './components/ContactUs/style.css';
+@import './components/Pricing/style.css';
+@import './components/QuestionnaireOrTemplates/style.css';
+@import './views/temps/style.css';
+@import './views/SignInUp/style.css';
+@import './components/GetStarted/style.css';
+@import './components/Slider/style.css';
+@import './components/About/style.css';
+@import './views/Questionnaire/style.css';
+@import './views/Profile/style.css';
+@import './components/ProfileComponent/style.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,16 +30,13 @@ body {
 /* Navbar styling */
 .menu {
   @apply w-full bg-[#D7CEC7] top-0 text-center text-[26px] 
-  font-poppins fixed h-106 flex shadow-[0px_4px_4px_0px_#00000080] z-50;
-}
-.menu-item {
-  @apply flex focus:border focus:border-b-2;
+  font-poppins fixed h-[6.625rem] flex shadow-[0px_4px_4px_0px_#00000080] z-50;
 }
 .menu-link {
   @apply py-7 px-3 ml-14 items-center text-black active:shadow-[0px_4px_4px_0px_#00000080];
 }
 .logo {
-  @apply h-16 top-0 z-10;
+  @apply h-16 z-10;
 }
 .logoWithFlexible {
   @apply flex items-center text-black py-[0.80rem] truncate text-[34px];
@@ -50,18 +47,12 @@ body {
 /* Sign in up navbar styling */
 .signInUpNavbar {
   @apply w-full mb-[3rem] bg-[#D7CEC7] top-0 text-center 
-    font-poppins flex justify-center fixed h-106 shadow-[0px_4px_4px_0px_#00000080] z-50;
+    font-poppins flex justify-center fixed h-[6.625rem] shadow-[0px_4px_4px_0px_#00000080] z-50;
 }
 .logoWithFlexible1 {
   @apply flex justify-center w-full items-center text-black py-5 text-[34px];
 }
-/* Footer styling */
-.footer-container {
-  @apply w-full h-[4rem] bg-[#013565] bottom-0 flex flex-row items-center text-white p-[1rem];
-}
-.footer-copyright-formality {
-  @apply flex justify-end w-full;
-}
+
 /* Parallax styling */
 .parallax-img {
   @apply min-w-full fixed top-0 left-2/4 -z-10 -translate-x-2/4;

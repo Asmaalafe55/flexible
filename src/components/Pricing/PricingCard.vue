@@ -1,29 +1,31 @@
 <template>
   <div class="relative">
     <div class="flex justify-center">
-      <div class="bg-[#D7CEC7E8] w-[332px] h-[587px] rounded-[20px]">
-        <div class="cardName">{{ name }}</div>
+      <div class="bg-[#D7CEC7E8] w-[21rem] h-[37rem] rounded-[18px]">
+        <div class="flex justify-center pt-5 text-[30px]">{{ name }}</div>
         <div class="flex justify-center">
-          <span class="cardPrice">
-            <b class="priceDetails">{{ shekels }}</b>
+          <span class="flex pt-5 font-bold text-[47px]">
+            <b class="flex items-center pt-[12px] text-[20px]">{{ shekels }}</b>
             <b class="items-end">{{ price }}</b>
-            <b v-if="monthly" class="priceDetails">/{{ monthly }}</b>
+            <b v-if="monthly" class="flex items-center pt-[12px] text-[20px]"
+              >/{{ monthly }}</b
+            >
           </span>
         </div>
-        <div class="cardSentence">{{ sentence }}</div>
-        <div class="offers">
-          <div class="cardOffers" v-for="(offer, i) in offers" :key="i">
+        <div class="flex justify-center pt-2 text-[20px]">{{ sentence }}</div>
+        <div class="flex flex-col items-center pt-[2rem]">
+          <div
+            class="flex flex-col items-center text-[20px]"
+            v-for="(offer, i) in offers"
+            :key="i"
+          >
             <hr class="line" />
             {{ offer }}
           </div>
           <hr class="line" />
         </div>
-
-        <!-- Here we should remember which of the offers the user choose,
-           becouse after signing in/up we should give him this offer -->
         <router-link to="/sign-in">
-          <!-- Here we should know if the user is already sign-in or not -->
-          <div class="btnPosition">
+          <div class="absolute bottom-5 left-[3rem]">
             <div class="pricingBtn">
               <div class="cardButton">Select</div>
             </div>
@@ -35,6 +37,6 @@
 </template>
 <script>
 export default {
-  props: ["name", "shekels", "price", "monthly", "sentence", "offers"],
-};
+  props: ['name', 'shekels', 'price', 'monthly', 'sentence', 'offers'],
+}
 </script>

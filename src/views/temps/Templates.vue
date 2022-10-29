@@ -2,7 +2,7 @@
   <div class="parallax">
     <img class="parallax-img" src="../../assets/img/bg.png" />
     <div class="flex justify-center">
-      <div class="template-container">
+      <div class="grid grid-cols-2 gap-[40px] my-[50px]">
         <div
           @mouseenter="t.hidden = false"
           @mouseleave="t.hidden = true"
@@ -24,12 +24,12 @@
 </template>
 
 <script setup>
-import './style.css';
-import { reactive } from 'vue';
+import './style.css'
+import { reactive } from 'vue'
 const templates = reactive([
   { id: 1, hidden: true },
   { id: 2, hidden: true },
   { id: 3, hidden: true },
   { id: 4, hidden: true },
-]);
+])
 </script>

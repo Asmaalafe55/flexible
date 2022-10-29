@@ -2,25 +2,25 @@
 export default {
   data() {
     return {
-      user: JSON.parse(localStorage.getItem("user")),
-    };
+      user: JSON.parse(localStorage.getItem('user')),
+    }
   },
   methods: {
     closeEditPhotoBox() {
-      this.$emit("closephoto");
+      this.$emit('closephoto')
     },
   },
-};
+}
 </script>
 <template>
-  <div class="edit-photo-container">
+  <div class="top-0 absolute w-[60rem] p-[16rem]">
     <div class="edit-photo-box">
       <div class="absolute w-[2rem] mt-[1rem] ml-[1rem] h-[2rem]">
         <button @click="closeEditPhotoBox">
           <img src="@/assets/img/x-icon.png" />
         </button>
       </div>
-      <div class="current-user-photo" id="profile-pic">
+      <div class="p-12" id="profile-pic">
         <img
           v-if="this.user.type == 'google'"
           class="user-photo"
@@ -32,27 +32,20 @@ export default {
           src="@/assets/img/mario.png"
         />
       </div>
-      <div class="add-photo-options">
-        <div>
-          <button>
-            <img class="w-[3rem] h-[3rem]" src="@/assets/img/pencile.png" />
-          </button>
-        </div>
-        <div>
-          <button>
-            <img class="w-[3rem] h-[3rem]" src="@/assets/img/trash-icon.png" />
-          </button>
-        </div>
-        <div>
-          <button>
-            <img class="w-[3rem] h-[3rem]" src="@/assets/img/camera_icon.png" />
-          </button>
-        </div>
-      </div>
-      <div class="add-photo-option-t">
-        <div class="font-normal text-[30px]"><p>Edit</p></div>
-        <div class="font-normal text-[30px] pl-[3rem]"><p>Delete</p></div>
-        <div class="font-normal text-[30px]"><p>Add photo</p></div>
+
+      <div class="flex justify-center space-x-14">
+        <button class="flex flex-col items-center justify-center">
+          <img class="w-[3rem] h-[3rem]" src="@/assets/img/pencile.png" />
+          <div class="font-normal text-[30px]">Edit</div>
+        </button>
+        <button class="flex flex-col items-center justify-center">
+          <img class="w-[3rem] h-[3rem]" src="@/assets/img/trash-icon.png" />
+          <div class="font-normal text-[30px]">Delete</div>
+        </button>
+        <button class="flex flex-col items-center justify-center">
+          <img class="w-[3rem] h-[3rem]" src="@/assets/img/camera_icon.png" />
+          <div class="font-normal text-[30px]">Add photo</div>
+        </button>
       </div>
     </div>
   </div>
