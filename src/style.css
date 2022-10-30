@@ -48,17 +48,17 @@ body {
 
 /* Navbar styling */
 .menu {
-  @apply w-full bg-[#D7CEC7] top-0 text-center text-[22px] 
-  font-poppins fixed h-[11vh] flex z-50;
+  @apply w-full bg-[#D7CEC7] top-0 text-center text-[18px] 
+  font-poppins fixed h-[10vh] flex z-50;
 }
 .menu-link {
-  @apply py-7 px-3 ml-14 items-center text-black active:shadow-[0px_4px_4px_0px_#00000080];
+  @apply py-7 px-3 mt-1 ml-6 items-center text-black active:shadow-[0px_4px_4px_0px_#00000080];
 }
 .logo {
   @apply h-16 z-10;
 }
 .logoWithFlexible {
-  @apply flex items-center text-black py-[0.80rem] truncate text-[30px];
+  @apply flex items-center text-black py-[0.80rem] truncate text-[30px] mr-6;
 }
 .underlined {
   @apply border-b-4 border-solid border-[#908077] rounded;

@@ -8,7 +8,7 @@
     </router-link>
 
     <div
-      class="flex focus:border focus:border-b-2"
+      class="flex focus:border focus:border-b-2 justify-start"
       style="focus:border-bottom: 2px solid black;"
     >
       <router-link
@@ -27,7 +27,7 @@
         <div v-if="focused === 'templates'" class="underlined">Templates</div>
         <div v-else>Templates</div>
       </router-link>
-      <router-link
+      <!-- <router-link
         to="/questionnaire"
         class="menu-link"
         @click="focused = 'questionnaire'"
@@ -36,7 +36,7 @@
           Questionnaire
         </div>
         <div v-else>Questionnaire</div>
-      </router-link>
+      </router-link> -->
       <router-link
         :to="{ path: '/', hash: '#pricing' }"
         class="menu-link"
