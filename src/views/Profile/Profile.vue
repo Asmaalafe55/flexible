@@ -8,29 +8,23 @@
   </div>
 </template>
 <script>
-import UserDetails from "@/components/ProfileComponent/UserDetails.vue";
-import ProfileSetting from "@/components/ProfileComponent/ProfileSetting.vue";
+import UserDetails from '@/components/ProfileComponent/UserDetails.vue'
+import ProfileSetting from '@/components/ProfileComponent/ProfileSetting.vue'
 export default {
   data() {
-    return {};
-  },
-  methods: {
-    handleSignOut(event) {
-      localStorage.removeItem("user");
-      window.location.href = "/";
-    },
+    return {}
   },
   mounted() {
     if (
-      !localStorage.getItem("user") &&
-      !localStorage.getItem("access_token")
+      !localStorage.getItem('user') &&
+      !localStorage.getItem('access_token')
     ) {
-      this.$router.push({ name: "signin" });
+      this.$router.push({ name: 'signin' })
     }
   },
   components: {
     UserDetails,
     ProfileSetting,
   },
-};
+}
 </script>

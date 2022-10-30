@@ -24,19 +24,41 @@
           </div>
           <hr class="line" />
         </div>
-        <router-link to="/sign-in">
-          <div class="absolute bottom-5 left-[3rem]">
-            <div class="pricingBtn">
-              <div class="cardButton">Select</div>
+        <div class="absolute bottom-5 left-[3rem]">
+          <div class="pricingBtn">
+            <div class="cardButton">
+              <!-- <router-link v-if="!checkSignIn" to="/sign-in">
+                Select
+              </router-link> -->
+              <a
+                href="#!"
+                class="paddle_button"
+                data-theme="none"
+                :data-product="product_id"
+                >Select</a
+              >
             </div>
           </div>
-        </router-link>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  props: ['name', 'shekels', 'price', 'monthly', 'sentence', 'offers'],
+  props: [
+    'name',
+    'shekels',
+    'price',
+    'monthly',
+    'sentence',
+    'offers',
+    'product_id',
+  ],
+  methods: {
+    checkSignIn() {
+      return !!localStorage.getItem('user')
+    },
+  },
 }
 </script>
