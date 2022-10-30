@@ -19,7 +19,7 @@ html {
   @apply scroll-pt-[100px];
 }
 body {
-  @apply mt-[6rem];
+  @apply mt-[4rem];
 }
 
 body::-webkit-scrollbar {
@@ -49,7 +49,7 @@ body {
 /* Navbar styling */
 .menu {
   @apply w-full bg-[#D7CEC7] top-0 text-center text-[22px] 
-  font-poppins fixed h-[11vh] flex  z-50;
+  font-poppins fixed h-[11vh] flex z-50;
 }
 .menu-link {
   @apply py-7 px-3 ml-14 items-center text-black active:shadow-[0px_4px_4px_0px_#00000080];
