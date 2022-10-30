@@ -27,18 +27,16 @@
         <div class="absolute bottom-5 left-[3rem]">
           <div class="pricingBtn">
             <div class="cardButton">
-              <div v-if="!checkSignIn">
-                <router-link to="/sign-in"> Select </router-link>
-              </div>
-              <div v-if="checkSignIn">
-                <a
-                  href="#!"
-                  class="paddle_button"
-                  data-theme="none"
-                  :data-product="product_id"
-                  >Select</a
-                >
-              </div>
+              <!-- <router-link v-if="!checkSignIn" to="/sign-in">
+                Select
+              </router-link> -->
+              <a
+                href="#!"
+                class="paddle_button"
+                data-theme="none"
+                :data-product="product_id"
+                >Select</a
+              >
             </div>
           </div>
         </div>
