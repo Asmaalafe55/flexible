@@ -6,25 +6,20 @@
         <PricingCard
           :name="name[0]"
           :price="price[0]"
-          :sentence="sentence[0]"
           :offers="offers[0]"
           :product_id="product_id[0]"
         />
         <PricingCard
           :name="name[1]"
-          :shekels="shekels"
           :price="price[1]"
           :monthly="monthly"
-          :sentence="sentence[1]"
           :offers="offers[1]"
           :product_id="product_id[1]"
         />
         <PricingCard
           :name="name[2]"
-          :shekels="shekels"
           :price="price[2]"
           :monthly="monthly"
-          :sentence="sentence[2]"
           :offers="offers[2]"
           :product_id="product_id[2]"
         />
@@ -40,11 +35,6 @@ export default {
     return {
       name: ['Starter', 'Basic', 'Premium'],
       price: ['Free', '57', '69'],
-      sentence: [
-        'For those getting started',
-        'For personal use',
-        'For growing your brand',
-      ],
       offers: [
         ['Flexible domain', 'Guest editors - 1'],
         [
@@ -62,7 +52,6 @@ export default {
         ],
       ],
       product_id: [37556, 37553, 37555],
-      shekels: '₪',
       monthly: 'monthly',
     }
   },
