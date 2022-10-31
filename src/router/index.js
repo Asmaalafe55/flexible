@@ -5,6 +5,7 @@ import SignIn from '../views/SignInUp/SignIn.vue'
 import Templates from '../views/temps/Templates.vue'
 import Questionnaire from '../views/Questionnaire/Questionnaire.vue'
 import Profile from '../views/Profile/Profile.vue'
+import Pricing from '../views/Pricing/Pricing.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: '/profile',
       name: 'profile',
       component: Profile,
+    },
+    {
+      path: '/pricing',
+      name: 'pricing',
+      component: Pricing,
     },
   ],
   scrollBehavior(to, from, SavedPosition) {
