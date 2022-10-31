@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       name: ['Starter', 'Basic', 'Premium'],
-      price: ['Free', '57', '69'],
+      price: ['18', '57', '69'],
       offers: [
         ['Flexible domain', 'Guest editors - 1'],
         [
