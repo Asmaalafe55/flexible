@@ -2,31 +2,18 @@
   <div class="parallax">
     <img class="parallax-img" src="../../assets/img/bg.png" />
     <div class="h-[90vh]">
-      <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-        <div class="flex justify-between items-center pb-4">
-          <div class="flex ml-2">
+      <div class="overflow-x-auto relative sm:rounded-lg">
+        <div class="flex justify-between items-center h-16 m-2 mx-4">
+          <div class="flex space-x-2">
             <button
-              id="dropdownRadioButton"
-              data-dropdown-toggle="dropdownRadio"
-              class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+              id="dropdownCheckboxButton"
+              data-dropdown-toggle="dropdownDefaultCheckbox"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               type="button"
             >
+              Dropdown checkbox
               <svg
-                class="mr-2 w-4 h-4 text-gray-400"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              Last 30 days
-              <svg
-                class="ml-2 w-3 h-3"
+                class="ml-2 w-4 h-4"
                 aria-hidden="true"
                 fill="none"
                 stroke="currentColor"
@@ -41,48 +28,10 @@
                 ></path>
               </svg>
             </button>
-            <ul
-              class="flex flex-wrap text-sm font-medium ml-2 text-center text-gray-500 dark:text-gray-400"
-            >
-              <li class="mr-2">
-                <a
-                  href="#"
-                  class="inline-block py-3 px-4 text-white bg-blue-600 rounded-lg active"
-                  aria-current="page"
-                  >Tab 1</a
-                >
-              </li>
-              <li class="mr-2">
-                <a
-                  href="#"
-                  class="inline-block py-3 px-4 rounded-lg text-white bg-blue-400 hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
-                  >Tab 2</a
-                >
-              </li>
-              <li class="mr-2">
-                <a
-                  href="#"
-                  class="inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
-                  >Tab 3</a
-                >
-              </li>
-              <li class="mr-2">
-                <a
-                  href="#"
-                  class="inline-block py-3 px-4 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white"
-                  >Tab 4</a
-                >
-              </li>
-              <li>
-                <a
-                  class="inline-block py-3 px-4 text-gray-400 cursor-not-allowed dark:text-gray-500"
-                  >Tab 5</a
-                >
-              </li>
-            </ul>
+
             <!-- Dropdown menu -->
             <div
-              id="dropdownRadio"
+              id="dropdownDefaultCheckbox"
               class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
               data-popper-reference-hidden=""
               data-popper-escaped=""
@@ -91,108 +40,99 @@
                 position: absolute;
                 inset: 0px auto auto 0px;
                 margin: 0px;
-                transform: translate3d(0px, 35935.5px, 0px);
+                transform: translate3d(0px, 320px, 0px);
               "
             >
               <ul
-                class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdownRadioButton"
+                class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
+                aria-labelledby="dropdownCheckboxButton"
               >
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
+                <li v-for="check in filter1">
+                  <div class="flex items-center">
                     <input
-                      id="filter-radio-example-1"
-                      type="radio"
-                      value=""
-                      name="filter-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      :id="check.title"
+                      type="checkbox"
+                      :value="check"
+                      v-model="check.checked"
+                      class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
-                      for="filter-radio-example-1"
-                      class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Last day</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      checked=""
-                      id="filter-radio-example-2"
-                      type="radio"
-                      value=""
-                      name="filter-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      for="filter-radio-example-2"
-                      class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Last 7 days</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="filter-radio-example-3"
-                      type="radio"
-                      value=""
-                      name="filter-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      for="filter-radio-example-3"
-                      class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Last 30 days</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="filter-radio-example-4"
-                      type="radio"
-                      value=""
-                      name="filter-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      for="filter-radio-example-4"
-                      class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Last month</label
-                    >
-                  </div>
-                </li>
-                <li>
-                  <div
-                    class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600"
-                  >
-                    <input
-                      id="filter-radio-example-5"
-                      type="radio"
-                      value=""
-                      name="filter-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <label
-                      for="filter-radio-example-5"
-                      class="ml-2 w-full text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Last year</label
+                      :for="check.title"
+                      class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      >{{ check.title }}</label
                     >
                   </div>
                 </li>
               </ul>
             </div>
+            <!-- ////////////////////// -->
+
+            <button
+              id="dropdownRadioButton"
+              data-dropdown-toggle="dropdownDefaultRadio"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              type="button"
+            >
+              Dropdown radio
+              <svg
+                class="ml-2 w-4 h-4"
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+
+            <!-- Dropdown menu -->
+            <div
+              id="dropdownDefaultRadio"
+              class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+              data-popper-reference-hidden=""
+              data-popper-escaped=""
+              data-popper-placement="bottom"
+              style="
+                position: absolute;
+                inset: 0px auto auto 0px;
+                margin: 0px;
+                transform: translate3d(0px, 320px, 0px);
+              "
+            >
+              <div
+                class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
+                aria-labelledby="dropdownRadioButton"
+              >
+                <ul>
+                  <li v-for="radio in filter2">
+                    <div class="flex items-center">
+                      <input
+                        type="radio"
+                        :id="radio.title"
+                        :value="radio"
+                        v-model="radioButton"
+                        name="default-radio"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      />
+                      <label
+                        :for="radio.title"
+                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        >{{ radio.title }}</label
+                      >
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <label for="table-search" class="sr-only">Search</label>
+
+          <!-- Search -->
           <div class="relative">
             <div
               class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
@@ -214,15 +154,19 @@
             <input
               type="text"
               id="table-search"
+              v-model="search"
               class="block p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Search for items"
+              placeholder="Search for templates"
             />
           </div>
+          <!-- searched: {{ search }} Radio: {{ radioButton.title }} checkbox:
+          {{ filter1[0].checked }} -->
         </div>
       </div>
-
-      <div v-for="temp in template" class="grid gap-4 grid-cols-3 grid-rows-3">
-        <TemplateCard :template="temp" />
+      <div class="flex space-x-4 m-4">
+        <div v-for="temp in template">
+          <TemplateCard :template="temp" />
+        </div>
       </div>
     </div>
   </div>
@@ -233,6 +177,14 @@ import TemplateCard from './TemplateCard.vue'
 export default {
   data() {
     return {
+      filter1: [
+        { title: 'checkbox1', checked: false },
+        { title: 'checkbox2', checked: false },
+        { title: 'checkbox3', checked: false },
+      ],
+      filter2: [{ title: 'redio1' }, { title: 'redio2' }, { title: 'redio3' }],
+      radioButton: '',
+      search: '',
       template: [
         {
           name: 'Travel Blog',
