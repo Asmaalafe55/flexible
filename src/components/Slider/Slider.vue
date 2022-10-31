@@ -1,10 +1,14 @@
 <template>
-  <div id="default-carousel" class="relative" data-carousel="slide">
+  <div
+    id="default-carousel"
+    class="relative w-[90vw] lg:w-[40vw]"
+    data-carousel="slide"
+  >
     <!-- Carousel wrapper -->
-    <div class="relative w-[40vw] overflow-hidden rounded-lg md:h-[50vh]">
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-[50vh]">
       <div
-        class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
-        data-carousel-item=""
+        class="duration-700 ease-in-out hidden h-full"
+        data-carousel-item
         v-for="(item, index) in images"
         :key="index"
       >

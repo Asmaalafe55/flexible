@@ -2,42 +2,69 @@
   @apply flex justify-center items-center 
   pb-[6rem];
 }
+
 .questionnaire-or-templates-title {
   @apply bg-[#013565] 
   h-[5rem]
-  w-[30rem]
   rounded-[15px]
   flex justify-center items-center
   text-3xl
   text-[white];
 }
+
 .polygon {
   @apply absolute
   w-0 h-0
-  left-[-40px]
-  border-l-[40rem]
   border-l-[#013565]
-  border-b-[40rem]
+  left-[-40px]
+  border-l-[20rem]
+  border-b-[20rem]
   border-b-transparent;
 }
+
 .questionnaire-or-templates-container {
-  @apply flex space-x-[5rem] items-center justify-center bg-mainBg;
+  @apply flex flex-col  items-center justify-center bg-secondary;
 }
-.build-website-option {
-  @apply z-10 my-6 w-[30rem] flex items-center flex-col;
-}
+
 .option-title {
-  @apply bg-white h-[3rem] w-3/4 rounded-[15px] flex items-center justify-center text-3xl text-[#013565];
+  @apply w-[90vw] text-center py-2 mb-2 rounded-[15px] text-3xl text-[#013565] font-medium;
 }
-.build-website-card {
-  @apply bg-bg1  bg-cover bg-no-repeat bg-center h-[40rem] z-10 w-full rounded-[20px] my-[2rem] shadow-md shadow-gray-700 p-[2rem];
-}
+
 .or-container {
-  @apply z-10 top-[28rem] h-[70px] w-[70px] text-3xl bg-[#B1A198] flex items-center justify-center rounded-[15px];
+  @apply z-10 p-5 text-xl bg-[#B1A198]  rounded-[15px] text-white;
 }
+
 .template-option {
-  @apply z-10 my-6 w-[30rem] flex items-center flex-col;
+  @apply z-10 my-6 flex items-center flex-col;
 }
-.template-card {
-  @apply bg-bg2  bg-cover bg-no-repeat bg-center h-[40rem] z-10 w-full rounded-[20px] my-[2rem] shadow-md shadow-gray-700 p-[2rem];
+
+.choose-card {
+  @apply bg-bg2 bg-cover 
+  bg-no-repeat 
+  bg-center 
+  h-[30vh]
+  z-10 w-[90vw]
+  rounded-[20px] 
+  shadow-md 
+  shadow-gray-700;
+}
+
+@media (min-width: 640px) {
+  .polygon {
+    @apply left-[0px]
+    border-l-[50rem]
+    border-b-[40rem];
+  }
+
+  .questionnaire-or-templates-container {
+    @apply flex-row justify-around h-[70vh];
+  }
+
+  .choose-card {
+    @apply w-[35vw] h-[40vh];
+  }
+
+  .option-title {
+    @apply w-[35vw];
+  }
 }

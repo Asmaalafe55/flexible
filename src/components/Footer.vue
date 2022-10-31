@@ -1,9 +1,11 @@
 <template>
   <footer
-    class="w-full h-[4rem] bg-[#013565] bottom-0 flex flex-row items-center text-white p-[1rem]"
+    class="h-[4rem] bg-gray-50 bottom-0 flex flex-row items-center p-[1rem]"
   >
-    <img src="../assets/img/pic2.png" class="logo" />
-    <div class="flex justify-end w-full">
+    <div
+      class="w-10 h-10 rounded-tl-full rounded-tr-full rounded-bl-full rounded-br-[50px] border-primary border-[10px]"
+    />
+    <div class="ml-auto">
       <p>© 2022 Flexible All Rights Reserved</p>
     </div>
   </footer>

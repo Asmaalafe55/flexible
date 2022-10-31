@@ -18,16 +18,13 @@
 html {
   @apply scroll-pt-[100px];
 }
-body {
-  @apply mt-[4rem];
-}
 
 body::-webkit-scrollbar {
   width: 5px;
 }
 
 body::-webkit-scrollbar-track {
-  @apply bg-mainBg;
+  @apply bg-secondary;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -40,45 +37,26 @@ body {
 
 /* Home styling */
 .homeStyle {
-  @apply flex justify-around items-center 
+  @apply flex flex-col justify-around items-center 
   h-[85vh] 
-  bg-[#D7CEC7] 
+bg-[#D7CEC7] 
   space-x-4;
-}
-
-/* Navbar styling */
-.menu {
-  @apply w-full bg-[#D7CEC7] top-0 text-center text-[18px] 
-  font-poppins fixed h-[10vh] flex z-50;
-}
-.menu-link {
-  @apply py-7 px-3 mt-1 ml-6 items-center text-black active:shadow-[0px_4px_4px_0px_#00000080];
-}
-.logo {
-  @apply h-16 z-10;
-}
-.logoWithFlexible {
-  @apply flex items-center text-black py-[0.80rem] truncate text-[30px] mr-6;
-}
-.underlined {
-  @apply border-b-4 border-solid border-[#908077] rounded;
-}
-/* Sign in up navbar styling */
-.signInUpNavbar {
-  @apply w-full mb-[3rem] bg-[#D7CEC7] top-0 text-center 
-    font-poppins flex justify-center fixed h-[6.625rem] shadow-[0px_4px_4px_0px_#00000080] z-50;
-}
-.logoWithFlexible1 {
-  @apply flex justify-center w-full items-center text-black py-5 text-[34px];
 }
 
 /* Parallax styling */
 .parallax-img {
-  @apply min-h-[100vh] fixed top-0 left-2/4 -z-10 -translate-x-2/4;
+  @apply min-h-[100vh] fixed top-0 left-0 w-screen -z-10;
 }
 .parallax {
   @apply relative h-1/2 bg-fixed bg-center bg-no-repeat bg-cover;
 }
-.titles {
-  @apply bg-[#013565] h-[5rem] w-[30rem] rounded-[15px] flex justify-center items-center text-3xl text-[white];
+
+@media (min-width: 640px) {
+  .homeStyle {
+    @apply flex-row;
+  }
+
+  .parallax-img {
+    @apply min-h-[100vh] fixed top-0 left-2/4 -z-10 -translate-x-2/4;
+  }
 }

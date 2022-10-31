@@ -16,8 +16,8 @@
 .formLabel {
   @apply block 
   mb-2 
-  text-sm 
-  font-medium 
+  text-lg 
+  font-medium
   text-gray-900;
 }
 

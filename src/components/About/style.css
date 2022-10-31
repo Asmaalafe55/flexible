@@ -2,5 +2,17 @@
   @apply flex flex-col justify-center py-[6rem] items-center font-poppins space-y-24;
 }
 .about-text-container {
-  @apply w-full flex justify-center items-center bg-[#D7CEC7] h-[60vh];
+  @apply w-full 
+  flex flex-col justify-around items-center 
+  bg-[#D7CEC7] py-10;
+}
+
+.about-title {
+  @apply bg-[#013565] w-[70vw] rounded-[15px] py-4 text-center text-2xl text-[white] mb-10;
+}
+
+@media (min-width: 640px) {
+  .about-title {
+    @apply text-3xl w-[20vw] py-5;
+  }
 }
