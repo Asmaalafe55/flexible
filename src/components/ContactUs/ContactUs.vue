@@ -3,7 +3,7 @@
     <div class="contact-card">
       <div class="card-title">Contact Us</div>
       <form class="flex flex-col mt-10" @submit.prevent @submit="openModal">
-        <div class="mb-6 mx-10">
+        <div class="mb-6 mx-4 lg:mx-10">
           <label for="first_name" class="formLabel"> Name </label>
           <input
             type="text"
@@ -16,7 +16,7 @@
         </div>
 
         <!-- move lable and input classes to global -->
-        <div class="mb-6 mx-10">
+        <div class="mb-6 mx-4 lg:mx-10">
           <label for="email" class="formLabel"> Email address </label>
           <input
             type="email"
@@ -27,13 +27,9 @@
             v-model="email"
           />
         </div>
-        <div class="mb-6 mx-10">
-          <label
-            for="message"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-          >
-            Your message
-          </label>
+
+        <div class="mb-6 mx-4 lg:mx-10">
+          <label for="message" class="formLabel"> Your message </label>
           <textarea
             id="message"
             rows="4"

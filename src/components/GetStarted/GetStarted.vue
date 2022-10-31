@@ -1,10 +1,12 @@
 <template>
   <div class="getStarted-container">
-    <p class="w-[25rem] text-center text-[34px]">
+    <p class="text-center text-[30px] lg:text-[30px]">
       Build your custom website with Flexible
     </p>
     <router-link :to="{ path: '/', hash: '#quesOrTemp' }">
-      <button class="text-3xl primaryButton w-80">Get Started</button>
+      <button class="text-xl primaryButton w-72 lg:w-80 lg:text-3xl">
+        Get Started
+      </button>
     </router-link>
   </div>
 </template>

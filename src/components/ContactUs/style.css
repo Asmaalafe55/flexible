@@ -1,6 +1,6 @@
 .contact-card {
-  @apply w-[35rem] 
-  bg-mainBg
+  @apply w-[90vw] 
+  bg-secondary
   rounded-[20px] 
   shadow-[0px_4px_4px_0px_#00000080] 
   m-auto
@@ -11,8 +11,15 @@
 .card-title {
   @apply h-[4rem] 
   bg-[#F1E8E2] 
+  text-[#013565] 
   text-[30px] 
   flex justify-center items-center 
   rounded-tr-[20px] 
   rounded-tl-[20px];
+}
+
+@media (min-width: 640px) {
+  .contact-card {
+    @apply w-[50rem];
+  }
 }

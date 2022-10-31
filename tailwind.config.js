@@ -15,16 +15,14 @@ module.exports = {
         boxShadow: 'inset 0px 4px 4px rgba(0, 0, 0, 0.25)',
       },
       colors: {
-        backgroundColor: '#D7CEC7',
-        mainBg: '#D7CEC7',
         text: '#989595',
         white: '#FFFFFF',
-        red: '#D11F1F',
+        red: '#D7CEC7',
         back: '#565454',
         black: '#000000',
-        navyColor: '#2B4F60',
         primary: '#f84e4e',
         primaryHover: '#fc2929',
+        secondary: '#D7CEC7',
       },
       backgroundImage: {
         bg2: "url('src/assets/img/a.jpg')",

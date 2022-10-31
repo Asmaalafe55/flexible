@@ -1,7 +1,7 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router';
-import Footer from './components/Footer.vue';
-import Navbar from './components/Navbar.vue';
+import { RouterLink, RouterView } from 'vue-router'
+import Footer from './components/Footer.vue'
+import Navbar from './components/Navbar.vue'
 
 export default {
   components: {
@@ -12,9 +12,9 @@ export default {
   data() {
     return {
       path: '',
-    };
+    }
   },
-};
+}
 </script>
 
 <template>
@@ -26,7 +26,5 @@ export default {
   <body>
     <RouterView />
   </body>
-  <footer>
-    <Footer />
-  </footer>
+  <Footer />
 </template>
