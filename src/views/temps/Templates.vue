@@ -1,8 +1,8 @@
 <template>
   <div class="parallax">
     <img class="parallax-img" src="../../assets/img/bg.png" />
-    <div class="h-[90vh]">
-      <div class="overflow-x-auto relative sm:rounded-lg">
+    <div class="min-h-screen">
+      <div class="relative sm:rounded-lg">
         <div class="flex justify-between items-center h-16 m-2 mx-4">
           <div class="flex space-x-2">
             <button
@@ -44,7 +44,7 @@
               "
             >
               <ul
-                class="p-3 space-y-3 z-50 text-sm text-gray-700 dark:text-gray-200"
+                class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownCheckboxButton"
               >
                 <li v-for="check in filter1">
@@ -94,7 +94,7 @@
             <!-- Dropdown menu -->
             <div
               id="dropdownDefaultRadio"
-              class="z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+              class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
               data-popper-reference-hidden=""
               data-popper-escaped=""
               data-popper-placement="bottom"
@@ -163,7 +163,7 @@
           {{ filter1[0].checked }} -->
         </div>
       </div>
-      <div class="flex space-x-4 m-4">
+      <div class="grid grid-cols-4 gap-6 mx-6">
         <div v-for="temp in template">
           <TemplateCard :template="temp" />
         </div>
