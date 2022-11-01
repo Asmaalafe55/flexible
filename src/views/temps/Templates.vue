@@ -163,7 +163,7 @@
           {{ filter1[0].checked }} -->
         </div>
       </div>
-      <div class="grid grid-cols-4 gap-6 mx-6">
+      <div class="grid grid-cols-4 gap-4 mx-6">
         <div v-for="temp in template">
           <TemplateCard :template="temp" />
         </div>
@@ -178,11 +178,12 @@ export default {
   data() {
     return {
       filter1: [
-        { title: 'checkbox1', checked: false },
-        { title: 'checkbox2', checked: false },
-        { title: 'checkbox3', checked: false },
+        { title: 'travel', checked: false },
+        { title: 'apps', checked: false },
+        { title: 'events', checked: false },
+        { title: 'clothing', checked: false },
       ],
-      filter2: [{ title: 'redio1' }, { title: 'redio2' }, { title: 'redio3' }],
+      filter2: [{ title: 'blog' }, { title: 'buisness' }, { title: 'store' }],
       radioButton: '',
       search: '',
       template: [
@@ -195,7 +196,7 @@ export default {
         {
           name: 'App Landing page',
           imgPath: 't2.png',
-          keywords: ['apps'],
+          keywords: ['apps', 'buisness'],
           description: 'Applications, startups and high-tech companies',
         },
         {
@@ -214,6 +215,14 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    filterWithSearch() {
+      for (temp in this.template) {
+        temp.keywords.filter((word) => word != this.search)
+      }
+      return ''
+    },
   },
   components: {
     TemplateCard,
