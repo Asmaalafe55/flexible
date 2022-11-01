@@ -44,7 +44,7 @@
               "
             >
               <ul
-                class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
+                class="p-3 space-y-3 z-50 text-sm text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownCheckboxButton"
               >
                 <li v-for="check in filter1">
@@ -94,7 +94,7 @@
             <!-- Dropdown menu -->
             <div
               id="dropdownDefaultRadio"
-              class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+              class="z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
               data-popper-reference-hidden=""
               data-popper-escaped=""
               data-popper-placement="bottom"
