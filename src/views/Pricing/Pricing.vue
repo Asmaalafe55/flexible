@@ -3,26 +3,9 @@
     <div class="bg-[#013565] w-full h-[800px] space-y-11">
       <div class="pricingTxt">Pricing</div>
       <div class="flex justify-center space-x-11">
-        <PricingCard
-          :name="name[0]"
-          :price="price[0]"
-          :offers="offers[0]"
-          :product_id="product_id[0]"
-        />
-        <PricingCard
-          :name="name[1]"
-          :price="price[1]"
-          :monthly="monthly"
-          :offers="offers[1]"
-          :product_id="product_id[1]"
-        />
-        <PricingCard
-          :name="name[2]"
-          :price="price[2]"
-          :monthly="monthly"
-          :offers="offers[2]"
-          :product_id="product_id[2]"
-        />
+        <div v-for="card in cardDetails">
+          <PricingCard :card="card" />
+        </div>
       </div>
     </div>
   </div>
@@ -33,26 +16,51 @@ import PricingCard from './PricingCard.vue'
 export default {
   data() {
     return {
-      name: ['Starter', 'Basic', 'Premium'],
-      price: ['18', '57', '69'],
-      offers: [
-        ['Flexible domain', 'Guest editors - 1'],
-        [
-          'Custom domain',
-          'Guest editors - 3',
-          'Storage space - 2 GB',
-          'Customer care - 24/7',
-        ],
-        [
-          'Custom domain',
-          'Guest editors - 6',
-          'Storage space - 10 GB',
-          'Publish permissions',
-          'Customer care - 24/7',
-        ],
+      cardDetails: [
+        {
+          name: 'Starter',
+          price: '18',
+          offers: ['2 team members', '10GB Cloud storage', 'Integration help'],
+          inactiveOffers: [
+            'Sketch Files',
+            'API Access',
+            'Complete documentation',
+            '24×7 phone & email support',
+          ],
+          product_id: 37556,
+        },
+        {
+          name: 'Basic',
+          price: '57',
+          offers: [
+            '4 team members',
+            '20GB Cloud storage',
+            'Integration help',
+            'Sketch Files',
+            'API Access',
+          ],
+          inactiveOffers: [
+            'Complete documentation',
+            '24×7 phone & email support',
+          ],
+          product_id: 37553,
+        },
+        {
+          name: 'Premium',
+          price: '69',
+          offers: [
+            '8 team members',
+            '40GB Cloud storage',
+            'Integration help',
+            'Sketch Files',
+            'API Access',
+            'Complete documentation',
+            '24×7 phone & email support',
+          ],
+          inactiveOffers: [],
+          product_id: 37555,
+        },
       ],
-      product_id: [37556, 37553, 37555],
-      monthly: 'monthly',
     }
   },
   components: {
