@@ -8,12 +8,10 @@
     <QuestionnaireOrTemplates id="quesOrTemp" />
     <!-- <Pricing id="pricing" /> -->
     <ContactUs id="contact" />
-    <EventQuestions />
   </main>
 </template>
 
 <script>
-import EventQuestions from '../components/QuestionnaireComponents/EventQuestions.vue'
 import Pricing from '../components/Pricing/Pricing.vue'
 import QuestionnaireOrTemplates from '../components/QuestionnaireOrTemplates/QuestionnaireOrTemplates.vue'
 import ContactUs from '../components/ContactUs/ContactUs.vue'
@@ -28,7 +26,6 @@ export default {
     Pricing,
     QuestionnaireOrTemplates,
     ContactUs,
-    EventQuestions,
   },
 }
 </script>
