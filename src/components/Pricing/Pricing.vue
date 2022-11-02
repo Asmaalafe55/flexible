@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center font-poppins">
+  <div class="flex justify-center">
     <div class="bg-[#013565] w-full h-[800px] space-y-11">
       <div class="pricingTxt">Pricing</div>
       <div class="flex justify-center space-x-11">

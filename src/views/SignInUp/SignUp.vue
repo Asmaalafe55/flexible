@@ -9,7 +9,7 @@
         <div class="bg-[#F1E8E2] rounded-t-[20px] h-[70px]">
           <div class="signText">Sign Up</div>
           <div class="flex flex-col items-center justify-center">
-            <div class="text-[25px] font-poppins w-[37.5rem] pt-5">
+            <div class="text-[25px] w-[37.5rem] pt-5">
               <div class="flex flex-row justify-around">
                 <div class="flex flex-col justify-start">
                   <div class="pl-2 text-[#0C0C0C] pb-1">First Name</div>

@@ -8,7 +8,7 @@
       <div class="signBg h-[38rem]">
         <div class="bg-[#F1E8E2] rounded-t-[20px] h-[70px]">
           <div class="signText">Sign In</div>
-          <div class="text-[25px] font-poppins py-5">
+          <div class="text-[25px] py-5">
             <div class="flex flex-row justify-around">
               <div class="flex flex-col justify-start">
                 <div class="pl-2 text-[#0C0C0C] pb-1">Email</div>

@@ -2,7 +2,7 @@
   <h1 class="nameQ1">{{ question.question }}</h1>
   <br />
   <div
-    class="text-black font-poppins font-normal text-3xl not-italic leading-loose ml-[7rem] mt-[35px]"
+    class="text-black font-normal text-3xl not-italic leading-loose ml-[3rem] mt-[35px]"
     v-for="(answerObj, i) in question.answers"
     :key="i"
   >
@@ -11,6 +11,7 @@
       type="radio"
       name="radio-answer"
       v-model="value"
+      :checked="value === answerObj.answer"
       :value="answerObj.answer"
       :id="answerObj.answer"
     />

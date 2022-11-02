@@ -16,7 +16,7 @@ export default {
   <div class="flex justify-center">
     <div class="w-[450px] h-[587px] rounded-[20px]">
       <div
-        class="flex justify-center pt-5 underline underline-offset-auto font-normal font-poppins leading-[51px] text-[32px]"
+        class="flex justify-center pt-5 underline underline-offset-auto font-normal leading-[51px] text-[32px]"
       >
         Subscription
       </div>

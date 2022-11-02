@@ -20,16 +20,16 @@
         />
       </div>
       <div class="buttons">
-        <button class="backButton" @click="qIndex--" v-if="qIndex >= 2">
+        <button class="backButton" @click="goBack" v-if="qIndex >= 2">
           Back
         </button>
 
-        <button @click="qIndex++" v-if="qIndex == 1" class="startButton">
+        <button @click="qIndex++" v-if="qIndex === 0" class="startButton">
           Start
         </button>
         <button
           @click="getData"
-          v-else-if="qIndex != paths[category]?.length + 3"
+          v-else-if="qIndex != paths[category]?.length + 2"
           class="nextButton"
           :disabled="qIndex === 3 && !category"
         >
@@ -38,7 +38,7 @@
 
         <button
           @click="openModal()"
-          v-if="qIndex == paths[category]?.length + 3"
+          v-if="qIndex == paths[category]?.length + 2"
           class="nextButton"
         >
           Submit
@@ -67,6 +67,7 @@ export default {
       category: '',
       data: data,
       currentQuestion: data[0],
+      questionsAsked: [],
       answers: [
         { question: 'What would you like to call your website?', answer: '' },
         { question: data[0].question, answer: '' },
@@ -78,23 +79,29 @@ export default {
   methods: {
     getData() {
       if (this.qIndex > 1) {
-        if (this.answers[this.answers.length - 1].answer === '') {
+        const currentAnswer = this.answers.find(findCondition)
+
+        // stop the user from continuing if they haven't answered the question
+        if (currentAnswer.answer === '') {
           return
         }
 
         const chosenAnswer = this.currentQuestion.answers.find(
           (answerObj) =>
-            answerObj.answer === this.answers[this.answers.length - 1].answer
+            answerObj.answer === this.answers.find(findCondition).answer
         )
 
         if (this.currentQuestion && chosenAnswer.next) {
+          this.questionsAsked.push(this.currentQuestion)
           this.currentQuestion = chosenAnswer.next
           this.answers.push({
             question: chosenAnswer.next.question,
             answer: '',
           })
         } else {
+          this.questionsAsked.push(this.currentQuestion)
           this.currentQuestion = this.data[this.qIndex - 1]
+
           this.qIndex++
         }
 
@@ -103,12 +110,30 @@ export default {
 
       this.qIndex++
     },
+    goBack() {
+      if (this.qIndex > 1 && this.questionsAsked.length > 0) {
+        // this.previousQuestion = previousQuestion
+        this.currentQuestion = this.questionsAsked.pop()
+
+        return
+      }
+
+      this.qIndex--
+    },
     updateDomain(event) {
       this.answers[0].answer = event
     },
 
     updateRadio(event) {
-      this.answers[this.answers.length - 1].answer = event
+      this.answers.find(findCondition).answer = event
+    },
+
+    updateCheckBox(event) {
+      this.answers.find(findCondition).answer = event
+    },
+
+    findCondition(obj) {
+      return obj.question === this.currentQuestion.question
     },
 
     mounted() {

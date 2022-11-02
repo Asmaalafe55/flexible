@@ -8,7 +8,7 @@
   @apply flex flex-row space-x-7 bg-[#013565] rounded-[20px] w-[50rem] h-[47rem] mb-[4rem] border border-solid;
 }
 .button-options-settings {
-  @apply flex flex-col space-y-12 ml-[2rem] mt-[4rem] text-[#FFFFFF] font-poppins leading-[51px]
+  @apply flex flex-col space-y-12 ml-[2rem] mt-[4rem] text-[#FFFFFF]   leading-[51px]
   text-[32px];
 }
 .content-settings {
@@ -17,7 +17,7 @@
 
 /* EditProfile styling */
 .edit-profile-input {
-  @apply text-[26px] font-poppins py-10 mt-[2rem] pl-10;
+  @apply text-[26px]   py-10 mt-[2rem] pl-10;
 }
 .profile-input-text {
   @apply w-[400px] h-[56px] mb-5 pl-3 rounded-[18px] bg-[#FFFFFF99] focus:bg-white focus:outline-none shadow-[0px_4px_4px_0px_#00000080];
@@ -28,7 +28,7 @@
   @apply table-auto border-collapse w-[20rem] border border-black;
 }
 .table-content {
-  @apply font-poppins leading-[51px] text-[32px] border border-black;
+  @apply leading-[51px] text-[32px] border border-black;
 }
 
 /* styling */
@@ -42,10 +42,10 @@
   @apply flex flex-col space-y-6;
 }
 .setting-header {
-  @apply flex justify-center pt-5 underline underline-offset-auto font-poppins leading-[51px] text-[32px];
+  @apply flex justify-center pt-5 underline underline-offset-auto   leading-[51px] text-[32px];
 }
 .setting-website {
-  @apply flex ml-[3rem] font-poppins leading-[51px] text-[32px];
+  @apply flex ml-[3rem]   leading-[51px] text-[32px];
 }
 .edit-box {
   @apply shadow-[0px_4px_4px_0px_#00000080] flex-col items-center justify-self-auto self-center  bg-[#C6C6C6] rounded-[18px] mt-[3rem];

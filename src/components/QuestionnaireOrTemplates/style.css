@@ -52,8 +52,8 @@
 @media (min-width: 640px) {
   .polygon {
     @apply left-[0px]
-    border-l-[50rem]
-    border-b-[40rem];
+    border-l-[50vw]
+    border-b-[37vw];
   }
 
   .questionnaire-or-templates-container {

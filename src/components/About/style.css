@@ -1,5 +1,5 @@
 .about-container {
-  @apply flex flex-col justify-center py-[6rem] items-center font-poppins space-y-24;
+  @apply flex flex-col justify-center py-[6rem] items-center space-y-24;
 }
 .about-text-container {
   @apply w-full 

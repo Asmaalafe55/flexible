@@ -22,7 +22,7 @@ export default {
           </button>
         </div>
 
-        <div class="absolute text-[30px] font-poppins">
+        <div class="absolute text-[30px]">
           <button @click="closeEditProfileBox">save</button>
         </div>
       </div>
