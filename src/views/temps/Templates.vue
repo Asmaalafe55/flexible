@@ -47,19 +47,19 @@
                 class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownCheckboxButton"
               >
-                <li v-for="check in filter1">
+                <li v-for="check in dropdown1">
                   <div class="flex items-center">
                     <input
-                      :id="check.title"
+                      :id="check"
                       type="checkbox"
                       :value="check"
-                      v-model="check.checked"
+                      v-model="checkboxSelected"
                       class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
-                      :for="check.title"
+                      :for="check"
                       class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                      >{{ check.title }}</label
+                      >{{ check }}</label
                     >
                   </div>
                 </li>
@@ -110,20 +110,20 @@
                 aria-labelledby="dropdownRadioButton"
               >
                 <ul>
-                  <li v-for="radio in filter2">
+                  <li v-for="radio in dropdown2">
                     <div class="flex items-center">
                       <input
                         type="radio"
-                        :id="radio.title"
+                        :id="radio"
                         :value="radio"
                         v-model="radioButton"
                         name="default-radio"
                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                       />
                       <label
-                        :for="radio.title"
+                        :for="radio"
                         class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        >{{ radio.title }}</label
+                        >{{ radio }}</label
                       >
                     </div>
                   </li>
@@ -159,12 +159,12 @@
               placeholder="Search for templates"
             />
           </div>
-          <!-- searched: {{ search }} Radio: {{ radioButton.title }} checkbox:
+          <!-- searched: {{ search }} Radio: {{ radioButton }} checkbox:
           {{ filter1[0].checked }} -->
         </div>
       </div>
       <div class="grid grid-cols-4 gap-4 mx-6">
-        <div v-for="temp in template">
+        <div v-for="temp in filteredByCheckbox">
           <TemplateCard :template="temp" />
         </div>
       </div>
@@ -177,20 +177,23 @@ import TemplateCard from './TemplateCard.vue'
 export default {
   data() {
     return {
-      filter1: [
-        { title: 'travel', checked: false },
-        { title: 'apps', checked: false },
-        { title: 'events', checked: false },
-        { title: 'clothing', checked: false },
-      ],
-      filter2: [{ title: 'blog' }, { title: 'buisness' }, { title: 'store' }],
+      dropdown1: ['travel', 'apps', 'events', 'clothing'],
+      dropdown2: ['blog', 'buisness', 'store'],
+      checkboxSelected: [],
       radioButton: '',
       search: '',
       template: [
         {
           name: 'Travel Blog',
           imgPath: 't1.png',
-          keywords: ['travel', 'blog', 'vacation', 'lifestyle', 'personal'],
+          keywords: [
+            'travel',
+            'blog',
+            'vacation',
+            'lifestyle',
+            'personal',
+            'events',
+          ],
           description: 'Bloggers, Travel Blogs, & Lifestyle Blogs',
         },
         {
@@ -202,7 +205,7 @@ export default {
         {
           name: 'Event Venue',
           imgPath: 't3.png',
-          keywords: ['events'],
+          keywords: ['events', 'travel'],
           description:
             'Concert venues, music halls, and live performance theaters',
         },
@@ -217,11 +220,29 @@ export default {
     }
   },
   computed: {
-    filterWithSearch() {
-      for (temp in this.template) {
-        temp.keywords.filter((word) => word != this.search)
-      }
-      return ''
+    filteredBySearch() {
+      return this.template.filter((temp) => {
+        return (
+          temp.keywords.filter((word) => {
+            return word.toLowerCase().includes(this.search.toLowerCase())
+          }).length ||
+          temp.description.toLowerCase().includes(this.search.toLowerCase())
+        )
+      })
+    },
+    filteredByRadio() {
+      return this.template.filter((temp) => {
+        return temp.keywords.filter((word) => {
+          return word.toLowerCase().includes(this.radioButton.toLowerCase())
+        }).length
+      })
+    },
+    filteredByCheckbox() {
+      return this.template.filter((temp) => {
+        return temp.keywords.filter((word) => {
+          return word.toLowerCase().includes(this.checkboxSelected)
+        }).length
+      })
     },
   },
   components: {
