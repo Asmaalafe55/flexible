@@ -1,5 +1,4 @@
 <template>
-  <div id="overlay"></div>
   <body class="bg-[#013565] pt-[5rem] pb-[5rem]">
     <div class="template-background">
       <div class="w-[100%] h-[85%]">
@@ -15,12 +14,13 @@
 
         <CheckBoxQuestion
           v-if="currentQuestion.type === 'checkbox' && qIndex > 1"
+          @input="updateCheckbox"
           :question="currentQuestion"
           :index="index"
         />
       </div>
       <div class="buttons">
-        <button class="backButton" @click="goBack" v-if="qIndex >= 2">
+        <button class="backButton" @click="goBack" v-if="qIndex > 1">
           Back
         </button>
 
@@ -29,16 +29,15 @@
         </button>
         <button
           @click="getData"
-          v-else-if="qIndex != paths[category]?.length + 2"
+          v-else-if="!isLastQuestion && qIndex > 0"
           class="nextButton"
-          :disabled="qIndex === 3 && !category"
         >
           Next
         </button>
 
         <button
           @click="openModal()"
-          v-if="qIndex == paths[category]?.length + 2"
+          v-else-if="isLastQuestion"
           class="nextButton"
         >
           Submit
@@ -58,15 +57,9 @@ import data from './data'
 export default {
   data() {
     return {
-      text: '',
-
-      paths: {
-        event: [0, 1, 2, 3, 4],
-        blog: [0, 1, 2, 3],
-      },
-      category: '',
       data: data,
       currentQuestion: data[0],
+      // for history mainly
       questionsAsked: [],
       answers: [
         { question: 'What would you like to call your website?', answer: '' },
@@ -79,7 +72,7 @@ export default {
   methods: {
     getData() {
       if (this.qIndex > 1) {
-        const currentAnswer = this.answers.find(findCondition)
+        const currentAnswer = this.answers.find(this.findCondition)
 
         // stop the user from continuing if they haven't answered the question
         if (currentAnswer.answer === '') {
@@ -88,10 +81,10 @@ export default {
 
         const chosenAnswer = this.currentQuestion.answers.find(
           (answerObj) =>
-            answerObj.answer === this.answers.find(findCondition).answer
+            answerObj.answer === this.answers.find(this.findCondition).answer
         )
 
-        if (this.currentQuestion && chosenAnswer.next) {
+        if (this.currentQuestion && chosenAnswer?.next) {
           this.questionsAsked.push(this.currentQuestion)
           this.currentQuestion = chosenAnswer.next
           this.answers.push({
@@ -101,6 +94,10 @@ export default {
         } else {
           this.questionsAsked.push(this.currentQuestion)
           this.currentQuestion = this.data[this.qIndex - 1]
+          this.answers.push({
+            question: this.data[this.qIndex - 1].question,
+            answer: '',
+          })
 
           this.qIndex++
         }
@@ -115,6 +112,11 @@ export default {
         // this.previousQuestion = previousQuestion
         this.currentQuestion = this.questionsAsked.pop()
 
+        // check if the last question was connected to the current question
+        if (!this.currentQuestion.answers.find((answerObj) => answerObj.next)) {
+          this.qIndex--
+        }
+
         return
       }
 
@@ -125,11 +127,11 @@ export default {
     },
 
     updateRadio(event) {
-      this.answers.find(findCondition).answer = event
+      this.answers.find(this.findCondition).answer = event
     },
 
-    updateCheckBox(event) {
-      this.answers.find(findCondition).answer = event
+    updateCheckbox(event) {
+      this.answers.find(this.findCondition).answer = event
     },
 
     findCondition(obj) {
@@ -143,6 +145,11 @@ export default {
       ) {
         this.$router.push({ name: 'signin' })
       }
+    },
+  },
+  computed: {
+    isLastQuestion() {
+      return !this.data[this.qIndex - 1]
     },
   },
   components: {

@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import Pricing from '../components/Pricing/Pricing.vue'
 import QuestionnaireOrTemplates from '../components/QuestionnaireOrTemplates/QuestionnaireOrTemplates.vue'
 import ContactUs from '../components/ContactUs/ContactUs.vue'
 import Slider from '../components/Slider/Slider.vue'
@@ -23,7 +22,6 @@ export default {
     Slider,
     About,
     GetStarted,
-    Pricing,
     QuestionnaireOrTemplates,
     ContactUs,
   },

@@ -17,10 +17,7 @@ module.exports = {
       },
       colors: {
         text: '#989595',
-        white: '#FFFFFF',
-        red: '#D7CEC7',
         back: '#565454',
-        black: '#000000',
         primary: '#f84e4e',
         primaryHover: '#fc2929',
         secondary: '#D7CEC7',
