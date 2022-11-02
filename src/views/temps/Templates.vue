@@ -159,12 +159,10 @@
               placeholder="Search for templates"
             />
           </div>
-          <!-- searched: {{ search }} Radio: {{ radioButton }} checkbox:
-          {{ filter1[0].checked }} -->
         </div>
       </div>
       <div class="grid grid-cols-4 gap-4 mx-6">
-        <div v-for="temp in filteredByCheckbox">
+        <div v-for="temp in filtered">
           <TemplateCard :template="temp" />
         </div>
       </div>
@@ -219,7 +217,7 @@ export default {
       ],
     }
   },
-  computed: {
+  methods: {
     filteredBySearch() {
       return this.template.filter((temp) => {
         return (
@@ -239,10 +237,18 @@ export default {
     },
     filteredByCheckbox() {
       return this.template.filter((temp) => {
-        return temp.keywords.filter((word) => {
-          return word.toLowerCase().includes(this.checkboxSelected)
+        return !temp.keywords.filter((word) => {
+          return this.checkboxSelected.includes(word.toLowerCase())
         }).length
       })
+    },
+  },
+  computed: {
+    filtered() {
+      let f1 = this.filteredBySearch()
+      let f2 = this.filteredByRadio()
+      let f3 = this.filteredByCheckbox()
+      return [...new Set([...f1, ...f2, ...f3])]
     },
   },
   components: {
