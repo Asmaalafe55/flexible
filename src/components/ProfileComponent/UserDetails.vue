@@ -1,6 +1,6 @@
 <template>
   <div class="userDetails-container">
-    <h1 class="font-poppins text-[36px]">{{ this.user.name }}</h1>
+    <h1 class="text-[36px]">{{ this.user.name }}</h1>
     <div class="relative">
       <img
         v-if="this.user.type == 'google'"

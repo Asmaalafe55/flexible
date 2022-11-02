@@ -1,15 +1,29 @@
 .template-background {
-  @apply flex justify-start flex-col items-start m-auto border-solid border border-[#948C86] rounded-[12px] h-[44rem] w-[44rem] bg-[#D7CEC7] shadow-[0px_4px_4px_0px_#00000080];
+  @apply flex flex-col m-auto border-solid rounded-[12px] h-[44rem] w-screen bg-[#D7CEC7] shadow-[0px_4px_4px_0px_#00000080];
 }
 .buttons {
   @apply flex flex-row justify-between m-auto mt-[0.8rem];
 }
 .startButton {
-  @apply shadow-boxShadow m-auto mb-[15rem] bg-primary text-white rounded-[1rem] h-[4.5rem] w-[12rem] text-3xl leading-loose font-poppins items-center text-center;
+  @apply shadow-boxShadow m-auto mb-[15rem] bg-primary text-white rounded-[1rem] h-[4.5rem] w-[12rem] text-3xl leading-loose   items-center text-center;
 }
 .backButton {
-  @apply shadow-boxShadow bg-primary rounded-[1rem] h-[4.5rem] w-[12rem] mr-[12rem] text-white text-3xl leading-loose font-poppins items-center text-center hover:opacity-80 hover:text-white  hover:bg-primary active:drop-shadow-xl active:bg-primary hover:rounded-[18px] active:h-[79px];
+  @apply shadow-boxShadow bg-primary rounded-[1rem] h-[3.5rem] ml-2 w-[8rem] mr-[5rem] text-white text-xl leading-loose items-center text-center active:drop-shadow-xl hover:rounded-[18px];
 }
 .nextButton {
-  @apply shadow-boxShadow bg-primary rounded-[1rem] h-[4.5rem] w-[12rem] text-white text-3xl leading-loose font-poppins items-center text-center hover:opacity-80 hover:text-white  hover:bg-primary active:drop-shadow-xl active:bg-primary hover:rounded-[18px] active:h-[79px];
+  @apply shadow-boxShadow bg-primary rounded-[1rem] h-[3.5rem] w-[8rem] text-white text-xl leading-loose   items-center text-center  active:drop-shadow-xl hover:rounded-[18px];
+}
+
+@media (min-width: 640px) {
+  .template-background {
+    @apply w-[44rem];
+  }
+
+  .backButton {
+    @apply mr-[12rem]  text-3xl h-[4.5rem] w-[12rem];
+  }
+
+  .nextButton {
+    @apply text-3xl w-[12rem] h-[4.5rem];
+  }
 }

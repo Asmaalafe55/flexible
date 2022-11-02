@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
 @import './components/QuestionnaireComponents/style.css';
 @import './components/ContactUs/style.css';
 @import './views/Pricing/style.css';
@@ -33,6 +33,9 @@ body::-webkit-scrollbar-thumb {
 
 body {
   scrollbar-width: none;
+  font-family: 'NoirPro', sans-serif;
+  font-feature-settings: 'kern' 1;
+  font-kerning: normal;
 }
 
 /* Home styling */

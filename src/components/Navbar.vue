@@ -1,23 +1,11 @@
 <template>
   <!-- <ul id="menu" class="menu">
-    <router-link :to="{ path: '/', hash: '#home' }">
-      <div class="logoWithFlexible">
-        <img src="../assets/img/pic1.png" class="logo" />
-      </div>
-    </router-link>
 
     <div
       class="flex focus:border focus:border-b-2 justify-start"
       style="focus:border-bottom: 2px solid black;"
     >
-      <router-link
-        :to="{ path: '/', hash: '#about' }"
-        class="menu-link"
-        @click="focused = 'aboutUs'"
-      >
-        <div v-if="focused === 'aboutUs'" class="underlined">About Us</div>
-        <div v-else>About Us</div>
-      </router-link>
+
       <router-link
         to="/templates"
         class="menu-link"
@@ -26,23 +14,7 @@
         <div v-if="focused === 'templates'" class="underlined">Templates</div>
         <div v-else>Templates</div>
       </router-link>
-    
-      <router-link
-        :to="{ path: '/', hash: '#pricing' }"
-        class="menu-link"
-        @click="focused = 'pricing'"
-      >
-        <div v-if="focused === 'pricing'" class="underlined">Pricing</div>
-        <div v-else>Pricing</div>
-      </router-link>
-      <router-link
-        :to="{ path: '/', hash: '#contact' }"
-        class="menu-link"
-        @click="focused = 'contact'"
-      >
-        <div v-if="focused === 'contact'" class="underlined">Contact Us</div>
-        <div v-else>Contact Us</div>
-      </router-link>
+   
       <router-link
         v-if="checkSignIn()"
         to="/profile"
@@ -109,7 +81,7 @@
               :to="{ path: '/', hash: '#about' }"
               @click="focused = 'aboutUs'"
             >
-              <div class="text-gray-900 hover:underline">About Us</div>
+              <div class="text-gray-900 hover:underline">About</div>
             </router-link>
           </li>
           <li>
@@ -125,7 +97,7 @@
               :to="{ path: '/', hash: '#contact' }"
               @click="focused = 'contact'"
             >
-              <div class="text-gray-900 hover:underline">Contact us</div>
+              <div class="text-gray-900 hover:underline">Contact</div>
             </router-link>
           </li>
           <li>
