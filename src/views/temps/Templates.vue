@@ -8,7 +8,7 @@
             <button
               id="dropdownCheckboxButton"
               data-dropdown-toggle="dropdownDefaultCheckbox"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
               type="button"
             >
               Dropdown checkbox
@@ -32,7 +32,7 @@
             <!-- Dropdown menu -->
             <div
               id="dropdownDefaultCheckbox"
-              class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+              class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow"
               data-popper-reference-hidden=""
               data-popper-escaped=""
               data-popper-placement="bottom"
@@ -44,7 +44,7 @@
               "
             >
               <ul
-                class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
+                class="p-3 space-y-3 text-sm text-gray-700"
                 aria-labelledby="dropdownCheckboxButton"
               >
                 <li v-for="check in dropdown1">
@@ -55,11 +55,11 @@
                       :value="check"
                       v-model="checkboxSelected"
                       name="default-checkbox"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
                     />
                     <label
                       :for="check"
-                      class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      class="ml-2 text-sm font-medium text-gray-900"
                       >{{ check }}</label
                     >
                   </div>
@@ -71,7 +71,7 @@
             <button
               id="dropdownRadioButton"
               data-dropdown-toggle="dropdownDefaultRadio"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
               type="button"
             >
               Dropdown radio
@@ -95,7 +95,7 @@
             <!-- Dropdown menu -->
             <div
               id="dropdownDefaultRadio"
-              class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+              class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow"
               data-popper-reference-hidden=""
               data-popper-escaped=""
               data-popper-placement="bottom"
@@ -118,12 +118,13 @@
                         :id="radio"
                         :value="radio"
                         v-model="radioButton"
+                        :checked="this.radioButton == radio"
                         name="default-radio"
-                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
                       />
                       <label
                         :for="radio"
-                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        class="ml-2 text-sm font-medium text-gray-900"
                         >{{ radio }}
                       </label>
                     </div>
@@ -131,13 +132,10 @@
                 </ul>
               </div>
             </div>
-            <form>
-              <input type="reset" />
-            </form>
             <button
               type="button"
-              @click="clearRadioButton"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              @click="clearButton"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none"
             >
               clear
             </button>
@@ -166,7 +164,7 @@
               type="text"
               id="table-search"
               v-model="search"
-              class="block p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              class="block p-2 pl-10 w-80 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Search for templates"
             />
           </div>
@@ -229,30 +227,37 @@ export default {
     }
   },
   methods: {
-    clearRadioButton() {
-      document.getElementById('table-search').checked = false
-      document.getElementByName('default-radio').checked = false
-      document.getElementByName('default-checkbox').checked = false
+    clearButton() {
       this.radioButton = ''
       this.search = ''
       this.checkboxSelected = []
     },
   },
   computed: {
-    // filtered() {
-    //   let f1 = this.filteredBySearch()
-    //   let f2 = this.filteredByRadio()
-    //   let f3 = this.filteredByCheckbox()
-    //   return [...new Set([...f1, ...f2, ...f3])]
-    // },
     filteredBySearch() {
       return this.template.filter((temp) => {
-        return (
-          temp.keywords.filter((word) => {
-            return word.toLowerCase().includes(this.search.toLowerCase())
-          }).length ||
-          temp.description.toLowerCase().includes(this.search.toLowerCase())
-        )
+        if (
+          !temp.description.toLowerCase().includes(this.search.toLowerCase())
+        ) {
+          return false
+        }
+
+        if (
+          !temp.keywords.includes(this.radioButton.toLowerCase()) &&
+          this.radioButton
+        ) {
+          return false
+        }
+
+        if (
+          !temp.keywords.some(
+            (word) => this.checkboxSelected.indexOf(word) >= 0
+          ) &&
+          this.checkboxSelected.length
+        ) {
+          return false
+        }
+        return true
       })
     },
     filteredByRadio() {
