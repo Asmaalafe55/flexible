@@ -54,6 +54,7 @@
                       type="checkbox"
                       :value="check"
                       v-model="checkboxSelected"
+                      name="default-checkbox"
                       class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
@@ -123,13 +124,23 @@
                       <label
                         :for="radio"
                         class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                        >{{ radio }}</label
-                      >
+                        >{{ radio }}
+                      </label>
                     </div>
                   </li>
                 </ul>
               </div>
             </div>
+            <form>
+              <input type="reset" />
+            </form>
+            <button
+              type="button"
+              @click="clearRadioButton"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >
+              clear
+            </button>
           </div>
 
           <!-- Search -->
@@ -162,7 +173,7 @@
         </div>
       </div>
       <div class="grid grid-cols-4 gap-4 mx-6">
-        <div v-for="temp in filtered">
+        <div v-for="temp in filteredBySearch">
           <TemplateCard :template="temp" />
         </div>
       </div>
@@ -218,6 +229,22 @@ export default {
     }
   },
   methods: {
+    clearRadioButton() {
+      document.getElementById('table-search').checked = false
+      document.getElementByName('default-radio').checked = false
+      document.getElementByName('default-checkbox').checked = false
+      this.radioButton = ''
+      this.search = ''
+      this.checkboxSelected = []
+    },
+  },
+  computed: {
+    // filtered() {
+    //   let f1 = this.filteredBySearch()
+    //   let f2 = this.filteredByRadio()
+    //   let f3 = this.filteredByCheckbox()
+    //   return [...new Set([...f1, ...f2, ...f3])]
+    // },
     filteredBySearch() {
       return this.template.filter((temp) => {
         return (
@@ -241,14 +268,6 @@ export default {
           return this.checkboxSelected.includes(word.toLowerCase())
         }).length
       })
-    },
-  },
-  computed: {
-    filtered() {
-      let f1 = this.filteredBySearch()
-      let f2 = this.filteredByRadio()
-      let f3 = this.filteredByCheckbox()
-      return [...new Set([...f1, ...f2, ...f3])]
     },
   },
   components: {
