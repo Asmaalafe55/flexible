@@ -135,7 +135,7 @@
             <button
               type="button"
               @click="clearButton"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none"
             >
               clear
             </button>
@@ -171,12 +171,13 @@
         </div>
       </div>
       <div class="grid grid-cols-4 gap-4 mx-6">
-        <div v-for="temp in filteredBySearch">
+        <div v-for="temp in filtered">
           <TemplateCard :template="temp" />
         </div>
       </div>
     </div>
   </div>
+  <div>{{ fetchTemplates(url) }}</div>
 </template>
 
 <script>
@@ -189,6 +190,8 @@ export default {
       checkboxSelected: [],
       radioButton: '',
       search: '',
+      temp: [],
+      url: 'http://localhost:4000/api/templates',
       template: [
         {
           name: 'Travel Blog',
@@ -227,14 +230,20 @@ export default {
     }
   },
   methods: {
+    async fetchTemplates(url) {
+      const response = await fetch(url)
+      var data = await response.json()
+      this.temp = await JSON.stringify(data)
+    },
     clearButton() {
       this.radioButton = ''
       this.search = ''
       this.checkboxSelected = []
+      console.log(this.temp)
     },
   },
   computed: {
-    filteredBySearch() {
+    filtered() {
       return this.template.filter((temp) => {
         if (
           !temp.description.toLowerCase().includes(this.search.toLowerCase())
@@ -258,20 +267,6 @@ export default {
           return false
         }
         return true
-      })
-    },
-    filteredByRadio() {
-      return this.template.filter((temp) => {
-        return temp.keywords.filter((word) => {
-          return word.toLowerCase().includes(this.radioButton.toLowerCase())
-        }).length
-      })
-    },
-    filteredByCheckbox() {
-      return this.template.filter((temp) => {
-        return !temp.keywords.filter((word) => {
-          return this.checkboxSelected.includes(word.toLowerCase())
-        }).length
       })
     },
   },
