@@ -6,7 +6,7 @@
       <a href="#">
         <img
           class="rounded-t-lg h-[25vh] w-full"
-          :src="'src/assets/img/' + template.template_img"
+          :src="template.template_img"
           alt=""
         />
       </a>
@@ -46,14 +46,6 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      pathData: '../../assets/img/',
-    }
-  },
   props: ['template'],
-  mounted() {
-    this.pathData += this.template.template_img
-  },
 }
 </script>
