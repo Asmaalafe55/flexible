@@ -6,7 +6,7 @@
       <a href="#">
         <img
           class="rounded-t-lg h-[25vh] w-full"
-          :src="'src/assets/img/' + template.imgPath"
+          :src="'src/assets/img/' + template.template_img"
           alt=""
         />
       </a>
@@ -15,11 +15,11 @@
           <h5
             class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
           >
-            {{ template.name }}
+            {{ template.template_name }}
           </h5>
         </a>
         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Good for {{ template.description }}
+          Good for {{ template.template_description }}
         </p>
         <a
           href="#"
@@ -53,7 +53,7 @@ export default {
   },
   props: ['template'],
   mounted() {
-    this.pathData += this.template.imgPath
+    this.pathData += this.template.template_img
   },
 }
 </script>
