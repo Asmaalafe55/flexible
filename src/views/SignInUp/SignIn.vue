@@ -173,7 +173,7 @@ export default {
 
       prompt_parent_id: 'googleId',
 
-      ux_mode: 'popup',
+      ux_mode: 'redirect',
     })
 
     window.google?.accounts.id.prompt((notification) => {
