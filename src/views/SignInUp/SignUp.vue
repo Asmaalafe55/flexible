@@ -65,7 +65,10 @@
               />
             </div>
             <div class="flex justify-center py-5">
-              <button class="text-xl primaryButton w-72 lg:w-80 lg:text-2xl">
+              <button
+                @click="signUp"
+                class="text-xl primaryButton w-72 lg:w-80 lg:text-2xl"
+              >
                 Sign Up
               </button>
             </div>
@@ -157,7 +160,9 @@ export default {
         password: this.passwordInput,
       }
       this.axios
-        .post('http://localhost:4000/api/sign-up', data)
+        .post('http://localhost:4000/api/sign-up', data, {
+          withCredentials: true,
+        })
         .then((response) => {
           if (response.data.status == 'success') this.$router.push('/sign-in')
           else alert('An error occured...')

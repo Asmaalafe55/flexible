@@ -1,6 +1,6 @@
 /* UserDetails styling */
 .userDetails-container {
-  @apply flex flex-col items-center self-center space-y-16 z-50;
+  @apply flex flex-col items-center space-y-16 z-50;
 }
 
 /* ProfileSetting styling */

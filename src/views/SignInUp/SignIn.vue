@@ -30,7 +30,10 @@
           />
         </div>
         <div class="flex justify-center py-5">
-          <button class="text-xl primaryButton w-72 lg:w-80 lg:text-2xl">
+          <button
+            @click="signIn"
+            class="text-xl primaryButton w-72 lg:w-80 lg:text-2xl"
+          >
             Sign In
           </button>
         </div>
@@ -131,6 +134,7 @@ export default {
             'access_token',
             response.data.access_token
           )
+          window.location.href = '/'
         })
         .catch((error) => console.log(error))
     },

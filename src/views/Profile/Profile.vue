@@ -1,7 +1,6 @@
 <template>
   <div class="bg-[#D7CEC7]">
-    <div class="profile-container">Profile Settings</div>
-    <div class="flex justify-around mt-[2rem] space-x-4">
+    <div class="flex items-start justify-around mt-[2rem] space-x-4">
       <UserDetails />
       <ProfileSetting />
     </div>

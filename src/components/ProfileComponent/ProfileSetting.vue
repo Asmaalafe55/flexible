@@ -1,13 +1,13 @@
 <script>
-import Websites from "./Websites.vue";
-import GuestEditors from "./GuestEditors.vue";
-import Subscriptions from "./Subscriptions.vue";
-import YourPayments from "./YourPayments.vue";
+import Websites from './Websites.vue'
+import GuestEditors from './GuestEditors.vue'
+import Subscriptions from './Subscriptions.vue'
+import YourPayments from './YourPayments.vue'
 export default {
   data() {
     return {
-      settingType: "",
-    };
+      settingType: 0,
+    }
   },
   components: {
     Websites,
@@ -15,10 +15,10 @@ export default {
     Subscriptions,
     YourPayments,
   },
-};
+}
 </script>
 <template>
-  <div class="profile-settings">
+  <div class="profile-settings mt-5">
     <div class="button-options-settings">
       <div><button @click="this.settingType = 0">Websites</button></div>
       <div><button @click="this.settingType = 1">Guest editors</button></div>
