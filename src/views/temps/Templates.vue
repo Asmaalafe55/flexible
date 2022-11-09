@@ -177,7 +177,6 @@
       </div>
     </div>
   </div>
-  <div>{{ fetchTemplates(url) }}</div>
 </template>
 
 <script>
@@ -187,79 +186,45 @@ export default {
     return {
       dropdown1: ['travel', 'apps', 'events', 'clothing'],
       dropdown2: ['blog', 'buisness', 'store'],
+      url: 'http://localhost:4000/api/templates',
       checkboxSelected: [],
       radioButton: '',
       search: '',
-      temp: [],
-      url: 'http://localhost:4000/api/templates',
-      template: [
-        {
-          name: 'Travel Blog',
-          imgPath: 't1.png',
-          keywords: [
-            'travel',
-            'blog',
-            'vacation',
-            'lifestyle',
-            'personal',
-            'events',
-          ],
-          description: 'Bloggers, Travel Blogs, & Lifestyle Blogs',
-        },
-        {
-          name: 'App Landing page',
-          imgPath: 't2.png',
-          keywords: ['apps', 'buisness'],
-          description: 'Applications, startups and high-tech companies',
-        },
-        {
-          name: 'Event Venue',
-          imgPath: 't3.png',
-          keywords: ['events', 'travel'],
-          description:
-            'Concert venues, music halls, and live performance theaters',
-        },
-        {
-          name: 'Clothing Store',
-          imgPath: 't4.png',
-          keywords: ['clothing', 'store', 'outfit'],
-          description:
-            'Online clothing stores, fashion boutiques, and designer studios',
-        },
-      ],
+      template: [],
     }
   },
   methods: {
-    async fetchTemplates(url) {
-      const response = await fetch(url)
-      var data = await response.json()
-      this.temp = await JSON.stringify(data)
-    },
     clearButton() {
       this.radioButton = ''
       this.search = ''
       this.checkboxSelected = []
-      console.log(this.temp)
     },
   },
+  async created() {
+    const response = await fetch(this.url)
+    this.template = await response.json()
+  },
+
   computed: {
     filtered() {
       return this.template.filter((temp) => {
         if (
-          !temp.description.toLowerCase().includes(this.search.toLowerCase())
+          !temp.template_description
+            .toLowerCase()
+            .includes(this.search.toLowerCase())
         ) {
           return false
         }
 
         if (
-          !temp.keywords.includes(this.radioButton.toLowerCase()) &&
+          !temp.template_keywords.includes(this.radioButton.toLowerCase()) &&
           this.radioButton
         ) {
           return false
         }
 
         if (
-          !temp.keywords.some(
+          !temp.template_keywords.some(
             (word) => this.checkboxSelected.indexOf(word) >= 0
           ) &&
           this.checkboxSelected.length
