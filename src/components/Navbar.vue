@@ -1,20 +1,6 @@
 <template>
   <!-- <ul id="menu" class="menu">
 
-    <div
-      class="flex focus:border focus:border-b-2 justify-start"
-      style="focus:border-bottom: 2px solid black;"
-    >
-
-      <router-link
-        to="/templates"
-        class="menu-link"
-        @click="focused = 'templates'"
-      >
-        <div v-if="focused === 'templates'" class="underlined">Templates</div>
-        <div v-else>Templates</div>
-      </router-link>
-   
       <router-link
         v-if="checkSignIn()"
         to="/profile"
@@ -64,11 +50,12 @@
           class="mr-6 text-sm font-medium text-gray-500 hover:underline"
           >(555) 412-1234</a
         >
-        <a
-          href="#"
+        <router-link
           class="text-sm font-medium text-primary dark:text-blue-500 hover:underline"
-          >Login</a
+          :to="{ path: '/sign-in' }"
         >
+          Login
+        </router-link>
       </div>
     </div>
   </nav>

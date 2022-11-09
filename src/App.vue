@@ -19,12 +19,10 @@ export default {
 
 <template>
   <header>
-    <Navbar
-      v-if="this.$route.name != 'signin' && this.$route.name != 'signup'"
-    />
+    <Navbar />
   </header>
   <body>
     <RouterView />
   </body>
-  <Footer />
+  <Footer v-if="this.$route.name != 'signin' && this.$route.name != 'signup'" />
 </template>

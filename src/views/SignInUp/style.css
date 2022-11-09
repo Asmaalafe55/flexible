@@ -1,18 +1,13 @@
 .sign-container {
-  @apply flex justify-center items-center overscroll-none py-5 scale-75;
-}
-.signBg {
-  @apply bg-[#D7CEC7] w-[600px] rounded-[20px] border border-black;
+  @apply flex flex-col overscroll-none my-6 mx-3 rounded-[20px] md:w-[60vw] lg:w-[30vw]  md:mx-auto;
 }
 .signText {
-  @apply flex justify-center text-black pt-3 text-[34px];
+  @apply flex justify-center text-black pt-3 text-[30px];
 }
-.detail-input {
-  @apply w-[250px] h-[60px] mb-5 pl-3 rounded-[18px] bg-[#FFFFFF99] focus:bg-white focus:outline-none shadow-[0px_4px_4px_0px_#00000080];
-}
-.emailInput {
-  @apply w-[550px] h-[60px] mb-5 pl-3 rounded-[18px] bg-[#FFFFFF99] focus:bg-white focus:outline-none shadow-[0px_4px_4px_0px_#00000080];
-}
+
 .btn {
-  @apply flex justify-center h-[70px] w-[237px] rounded-[18px] bg-[#d11f1f] text-[34px] text-white shadow-[0px_4px_4px_0px_#00000080];
+  @apply rounded-[18px] bg-primary  text-white shadow-[0px_4px_4px_0px_#00000080];
+}
+
+@media (min-width: 640px) {
 }
