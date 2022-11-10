@@ -12,12 +12,13 @@ const blogCoreFeatures = [
 
 const storeNextQuestion = {
   question: 'What are the core features of your store?',
+  type: 'checkbox',
   answers: [
     {
-      answer: 'Deals/Sales/Promo code',
+      answer: 'Sales/Promo code',
     },
     {
-      answer: 'Wish list / Favorite',
+      answer: 'Wish list/Favorite',
     },
     {
       answer: 'Delivery',

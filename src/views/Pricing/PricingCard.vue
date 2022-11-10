@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-4 w-full max-w-sm bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700"
+    class="p-4 w-[90vw] max-w-sm bg-white rounded-lg border shadow-md sm:p-8"
   >
     <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
       {{ card.name }}
