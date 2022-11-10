@@ -1,11 +1,11 @@
 <template>
   <div class="flex justify-center">
-    <div class="bg-[#013565] w-full h-[800px] space-y-11">
+    <div class="bg-[#013565] w-screen">
       <div class="pricingTxt">Pricing</div>
-      <div class="flex justify-center space-x-11">
-        <div v-for="card in cardDetails">
-          <PricingCard :card="card" />
-        </div>
+      <div
+        class="flex flex-col items-center space-y-4 mb-6 md:flex-row md:space-x-4 md:space-y-0 md:justify-center"
+      >
+        <PricingCard v-for="card in cardDetails" :card="card" />
       </div>
     </div>
   </div>
