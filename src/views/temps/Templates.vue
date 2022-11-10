@@ -3,7 +3,7 @@
     <img class="parallax-img" src="../../assets/img/bg.png" />
     <div class="min-h-screen">
       <div class="relative sm:rounded-lg">
-        <div class="flex justify-between items-center h-16 m-2 mx-4">
+        <div class="flex justify-between items-center h-16 m-2 ml-14 mx-8">
           <div class="flex space-x-2">
             <button
               id="dropdownCheckboxButton"
@@ -11,7 +11,7 @@
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
               type="button"
             >
-              Dropdown checkbox
+              Filter
               <svg
                 class="ml-2 w-4 h-4"
                 aria-hidden="true"
@@ -47,7 +47,7 @@
                 class="p-3 space-y-3 text-sm text-gray-700"
                 aria-labelledby="dropdownCheckboxButton"
               >
-                <li v-for="check in dropdown1">
+                <li v-for="check in dropdown">
                   <div class="flex items-center">
                     <input
                       :id="check"
@@ -66,72 +66,7 @@
                 </li>
               </ul>
             </div>
-            <!-- ////////////////////// -->
 
-            <button
-              id="dropdownRadioButton"
-              data-dropdown-toggle="dropdownDefaultRadio"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
-              type="button"
-            >
-              Dropdown radio
-              <svg
-                class="ml-2 w-4 h-4"
-                aria-hidden="true"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
-            </button>
-
-            <!-- Dropdown menu -->
-            <div
-              id="dropdownDefaultRadio"
-              class="hidden z-10 w-48 bg-white rounded divide-y divide-gray-100 shadow"
-              data-popper-reference-hidden=""
-              data-popper-escaped=""
-              data-popper-placement="bottom"
-              style="
-                position: absolute;
-                inset: 0px auto auto 0px;
-                margin: 0px;
-                transform: translate3d(0px, 320px, 0px);
-              "
-            >
-              <div
-                class="p-3 space-y-3 text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdownRadioButton"
-              >
-                <ul>
-                  <li v-for="radio in dropdown2">
-                    <div class="flex items-center">
-                      <input
-                        type="radio"
-                        :id="radio"
-                        :value="radio"
-                        v-model="radioButton"
-                        :checked="this.radioButton == radio"
-                        name="default-radio"
-                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 focus:ring-2"
-                      />
-                      <label
-                        :for="radio"
-                        class="ml-2 text-sm font-medium text-gray-900"
-                        >{{ radio }}
-                      </label>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
             <button
               type="button"
               @click="clearButton"
@@ -184,18 +119,15 @@ import TemplateCard from './TemplateCard.vue'
 export default {
   data() {
     return {
-      dropdown1: ['travel', 'apps', 'events', 'clothing'],
-      dropdown2: ['blog', 'buisness', 'store'],
+      dropdown: ['travel', 'apps', 'events', 'clothing'],
       url: 'http://localhost:4000/api/templates',
       checkboxSelected: [],
-      radioButton: '',
       search: '',
       template: [],
     }
   },
   methods: {
     clearButton() {
-      this.radioButton = ''
       this.search = ''
       this.checkboxSelected = []
     },
@@ -212,13 +144,6 @@ export default {
           !temp.template_description
             .toLowerCase()
             .includes(this.search.toLowerCase())
-        ) {
-          return false
-        }
-
-        if (
-          !temp.template_keywords.includes(this.radioButton.toLowerCase()) &&
-          this.radioButton
         ) {
           return false
         }
