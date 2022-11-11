@@ -119,7 +119,33 @@ import TemplateCard from './TemplateCard.vue'
 export default {
   data() {
     return {
-      dropdown: ['travel', 'apps', 'events', 'clothing'],
+      dropdown: [
+        'blog',
+        'store',
+        'app',
+        'travel',
+        'photograph',
+        'homepage',
+        'portfolio',
+        'photos',
+        'films',
+        'liefstyle',
+        'makeup',
+        'clothing',
+        'eCommerce',
+        'fashion',
+        'shop',
+        'accessories',
+        'business',
+        'investing',
+        'event',
+        'music',
+        'graphic designers',
+        'application',
+        'startup',
+        'creative',
+        'company',
+      ],
       url: 'http://localhost:4000/api/templates',
       checkboxSelected: [],
       search: '',
@@ -144,6 +170,12 @@ export default {
           !temp.template_description
             .toLowerCase()
             .includes(this.search.toLowerCase())
+        ) {
+          return false
+        }
+
+        if (
+          !temp.template_name.toLowerCase().includes(this.search.toLowerCase())
         ) {
           return false
         }
